@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    background-image: url("../imagenes/fondoinicio.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    height: 88vh;
+    overflow: hidden;
+}
+
+.inicio{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.inicio_perro_img{
+    height: 105vh;
+}
+
+.contenedor_texto_inicio{
+    width: 50vw;
+}
+
+.h2_inicio{
+    font-size: 5rem;
+    margin-left: 6rem;
+    color: #3e66a2;
+}
+
+.h1_inicio{
+    font-size: 5rem;
+    border-bottom: .6rem solid white;
+    color: #e6546b;
+}
+
+.p_inicio{
+    font-size: 2rem;
+    text-align: right;
+    margin-top: 2rem;
+}
+
+footer{
+    background-color: #6a9888;
+    height: 12vh;
+    border-top: 3px solid white;
+    z-index: 1;
+}
