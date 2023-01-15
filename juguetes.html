@@ -26,7 +26,7 @@
         <form class="form d-flex flex-wrap justify-content-between m-5">
             <div class="categ cards d-flex flex-wrap justify-content-between" id="cat">
                 <div class="check-selects" >
-                    <label class="check_sep m-3" v-if="categorias" v-for="cate of categorias">
+                    <label class="check_sep m-3" v-if="categorias" v-for="cate in categorias">
                     <input type="checkbox" v-on:change="filtroCruzado" class="checks-deks" v-model="chequeados" :value="cate" name="cate" :id="cate">
                     {{cate}}
                     </label>
@@ -38,7 +38,7 @@
             </div>
         </form>
         <div  id="card_home" class="cards d-flex flex-wrap justify-content-center" >
-            <div v-if="tarjetasFiltradas" class="card col-3 m-3" style="width: 18rem;" v-for="tarjeta of tarjetasFiltradas">
+            <div v-if="tarjetasFiltradas" class="card bg-info text-dark col-3 m-3" style="width: 18rem;" v-for="tarjeta of tarjetasFiltradas">
                 <img v-bind:src="tarjeta.imagen" class="card-img-top" style="height: 10rem;" :alt="tarjeta.producto">
                 <div class="card-body">
                 <h5 class="card-title text-center">{{tarjeta.producto}}</h5>
@@ -52,6 +52,6 @@
         <div v-show="tarjetasFiltradas.length==0" class="text-center fs-1">No matches found</div>
     </main>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="./jugueteria.js"></script>
+    <script src="./juguetes.js"></script>
 </body>
 </html>

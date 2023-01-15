@@ -13,7 +13,7 @@
         </div>
         <div class="botones">
             <a href="./index.html">inicio</a>
-            <a href="./jugueteria.html">jugueteria</a>
+            <a href="./juguetes.html">jugueteria</a>
             <a href="#">farmacia</a>
         </div>
     </header>
@@ -37,15 +37,25 @@
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </div>
         </form>
-        <div  id="card_home" class="cards d-flex flex-wrap justify-content-center" >
-            <div v-if="tarjetasFiltradas" class="card col-3 m-3" style="width: 18rem;" v-for="tarjeta of tarjetasFiltradas">
+        <div  id="card_home" class="cards  d-flex flex-wrap justify-content-center" >
+            <div v-if="tarjetasFiltradas" class="card bg-info text-dark col-3 m-3" style="width: 18rem;" v-for="tarjeta of tarjetasFiltradas">
                 <img v-bind:src="tarjeta.imagen" class="card-img-top" style="height: 10rem;" :alt="tarjeta.producto">
                 <div class="card-body">
                 <h5 class="card-title text-center">{{tarjeta.producto}}</h5>
-                <p class="card-text">Descripcion: {{tarjeta.descripcion.slice(0,100)}}...</p>
-                <p class="card-text">Cantidad disponibles: {{tarjeta.disponibles}}</p>
-                <div class="price">       
-                <p class="card-text">Precio: {{tarjeta.precio}}</p>
+                <p class="card-text text-center">Descripcion: {{tarjeta.descripcion.slice(0,100)}}...</p>
+                <div class="d-flex justify-content-between">
+                    <p class="card-text col-6">Stock: {{tarjeta.disponibles}}</p>         
+                    <p class="card-text col-6 ms-4">Precio: {{tarjeta.precio}}</p>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <!-- <input class="col-5 m-2" type="number" v-on:input="valor"> -->  
+                    <button class="badge text-bg-primary" @click="agregar(tarjeta)">agregar al carrito</button>
+                    <button class="badge text-bg-danger" @click="eliminar(tarjeta)">eliminar del carrito</button>
+                </div>
+                <div>
+                    <!-- <input class="col-5 m-2" type="number" > -->
+                    
                 </div>
             </div>
         </div>
