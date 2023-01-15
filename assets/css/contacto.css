@@ -12,6 +12,70 @@ html, body, #app {
 
 }
 
+.backgroundImage{
+
+  background-image: url('../imagenes/fondoinicio.jpg');
+  background-position: center;
+  background-size: cover;
+
+}
+
+.contenedor-form{
+
+  background-color: white;
+  width: 600px;
+  max-width: 90vw;
+  min-height: 85vh;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+
+}
+
+.input{
+
+  width: 100%;
+  max-width: 90vw;
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  background-color: white;
+}
+
+.input:focus{
+
+  outline: solid 2px rgb(255, 163, 58);
+
+}
+
+.boton-contact{
+  
+  width: 100%;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+  box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.5);
+  background-color:  rgb(231, 199, 108);;
+
+}
+
+.boton-contact:hover{
+
+  background-color: rgb(250, 183, 0);
+
+}
+
+.boton-contact:active{
+
+  transform: scale(.99);
+
+}
+
+.textareaNoResizable{
+
+  resize: none;
+
+}
+
 .invisible {
   visibility: hidden;
 }

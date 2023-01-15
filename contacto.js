@@ -9,6 +9,7 @@ createApp({
                 apellido: "",
                 telefono: "",
                 mascota: "",
+                otraMascota: "",
                 mensaje: ""
             },
             errors: {
@@ -16,7 +17,9 @@ createApp({
                 apellido: "",
                 telefono: "",
                 mascota: "",
-                mensaje: ""
+                otraMascota: "",
+                mensaje: "",
+
             },
             sending: null
 
@@ -28,9 +31,14 @@ createApp({
 
             this.evaluarInputs(true);
 
-            console.log(Object.values(this.errors))
+            console.log( Object.entries(this.errors).filter(e => e[1] !== "").length)
+            console.log(this.errors.otraMascota)
+            console.log(this.data.mascota)
 
-            if(!Object.values(this.errors).some(e => e !== "")){
+            if(!Object.values(this.errors).some(e => e !== "") || 
+                Object.entries(this.errors).filter(e => e[1] !== "").length === 1 && 
+                this.errors.otraMascota &&
+                this.data.mascota !== "otro" ){
 
                 this.sending = true;
 
@@ -49,9 +57,13 @@ createApp({
 
                 if(this.data[key]){
 
-                    if(!/^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/g.test(this.data[key]) && (key === "nombre" || key === "apellido" || key === "mascota")) this.errors[key] = "*sólo introducir letras";
+                    if(!/^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/g.test(this.data[key]) && 
+                        (   key === "nombre" || 
+                            key === "apellido" || 
+                            key === "OtraMascota")) this.errors[key] = "*sólo introducir letras";
     
-                    else if(key === "telefono" && !/^[0-9]+$/g.test(this.data[key])) this.errors.telefono = "*sólo introducir números";
+                    else if(key === "telefono" && 
+                            !/^[0-9]+$/g.test(this.data[key])) this.errors.telefono = "*sólo introducir números";
 
                 }
 
