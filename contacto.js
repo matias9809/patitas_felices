@@ -31,10 +31,6 @@ createApp({
 
             this.evaluarInputs(true);
 
-            console.log( Object.entries(this.errors).filter(e => e[1] !== "").length)
-            console.log(this.errors.otraMascota)
-            console.log(this.data.mascota)
-
             if(!Object.values(this.errors).some(e => e !== "") || 
                 Object.entries(this.errors).filter(e => e[1] !== "").length === 1 && 
                 this.errors.otraMascota &&
