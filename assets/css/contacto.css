@@ -17,16 +17,41 @@ html, body, #app {
   background-image: url('../imagenes/fondoinicio.jpg');
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+.img-contacto{
+
+  position: relative;
+  top: 40px;
+
+}
+
+.loader-content{
+
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
 }
 
 .contenedor-form{
-
-  background-color: white;
-  width: 600px;
   max-width: 90vw;
-  min-height: 85vh;
+  position: relative;
+  background-color: white;
+  padding: 20px;
+  height: fit-content;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+
+}
+
+.contenedor-form > form {
+
+  width: 400px;
 
 }
 
@@ -46,6 +71,19 @@ html, body, #app {
 
 }
 
+.boton-otroMensaje{
+
+  width: fit-content;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  padding: 5px 10px 5px 10px;
+  box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.5);
+  background-color:  rgb(231, 199, 108);
+
+}
+
 .boton-contact{
   
   width: 100%;
@@ -54,11 +92,11 @@ html, body, #app {
   font-size: 20px;
   border: none;
   box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.5);
-  background-color:  rgb(231, 199, 108);;
+  background-color:  rgb(231, 199, 108);
 
 }
 
-.boton-contact:hover{
+.botonHover:hover{
 
   background-color: rgb(250, 183, 0);
 
@@ -73,6 +111,12 @@ html, body, #app {
 .textareaNoResizable{
 
   resize: none;
+
+}
+
+.sizeMap{
+
+  width: 400px;
 
 }
 
@@ -163,4 +207,51 @@ html, body, #app {
   100% {
     transform: rotate(360deg);
   }
+}
+
+
+
+@media (max-width: 1171px){
+
+  .img-contacto{
+
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    top: 35%;
+    transform: translate(-50%, -50%)
+
+  }
+}
+
+@media (max-width: 750px){
+
+  .contenedor-form{
+
+    flex-direction: column;
+    width: 90vw;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+
+  }
+
+  .contenedor-form > form {
+
+    width: 85vw;
+
+  }
+
+  .sizeMap{
+
+    width: 85vw;
+
+  }
+
+  .img-contacto{
+
+    display: none;
+
+  }
+
 }

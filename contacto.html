@@ -18,13 +18,20 @@
         <div    class="d-flex flex-column justify-content-center align-items-center backgroundImage" 
                 style="min-height: 100vh;">
             
-            <div class="d-flex gap-5 pt-4">
-                <img src="./assets/imagenes/perrocontacto.png" alt="perro-con-gabardina" width="400">
+            <div class="d-flex gap-5 pt-4 justify-content-center align-items-center">
+                <img    src="./assets/imagenes/perrocontacto.png" 
+                        alt="perro-con-gabardina" 
+                        width="300" 
+                        height="550"
+                        class="img-contacto">
                 <div>
                     <h1 class="p-0 m-0 mt-2">CONTACTO</h1>
-                    <div class="contenedor-form bg-white d-flex flex-column justify-content-center align-items-center rounded">
-                        <template v-if="sending">
-                            <div class="lds-roller">
+                    <div  class="contenedor-form bg-white d-flex justify-content-center rounded"
+                        >
+                        <div  v-if="sending !== null"
+                            class="loader-content">
+                            <template v-if="sending">
+                                <div class="lds-roller">
                                     <div></div>
                                     <div></div>
                                     <div></div>
@@ -33,72 +40,91 @@
                                     <div></div>
                                     <div></div>
                                     <div></div>
-                            </div>
-                            <p class="fs-5 mt-2">Enviando mensaje</p>
-                        </template>
-                        <template v-if="sending === false">
-                            <lottie-player src="./assets/icons/checkMark.json"  
-                            background="transparent"  
-                            speed="1"  
-                            style="width: 80px; height: 80px;"   
-                            autoplay></lottie-player>
-                            <p class="fs-5 mt-2">Mensaje recibido</p>
-                        </template>
-                        <form   action="" 
-                        class="container p-4 m-0" 
+                                </div>
+                                <p class="fs-5 mt-2">Enviando mensaje</p>
+                            </template>
+                            <template v-if="sending === false">
+                                <lottie-player src="./assets/icons/checkMark.json"  
+                                background="transparent"  
+                                speed="1"  
+                                style="width: 80px; height: 80px;"   
+                                autoplay></lottie-player>
+                                <p class="fs-5 mt-2">Mensaje recibido</p>
+                            </template>
+                            <button class="boton-otroMensaje botonHover" 
+                                        @click="sending = null"
+                                        :class="{ invisible: sending !== false}"
+                                        >Enviar otra consulta</button>
+                        </div>
+                        
+                        <form  action="" 
+                        class="container p-4 m-0 d-flex flex-column gap-1" 
                         @submit.prevent v-if="sending === null"
                         style="max-width: 800px;">
+                            <h3 class="text-center">Envianos tu consulta</h3>
                             <div class="d-flex flex-column p-0">
                                 <label for="nombre" class="">Nombre</label>
                                 <input type="text" class="input" id="nombre" v-model="data.nombre">
                                 <p  :class="{ invisible: !errors.nombre}" class="text-danger m-0">
-                                    {{errors.nombre || "error"}}
+                                    {{errors.nombre}}
                                 </p>
                             </div>
                             <div class="p-0 d-flex flex-column">
                                 <label for="apellido" class="m-0">Apellido</label>
                                 <input type="text" class="input" id="apellido" v-model="data.apellido"> 
                                 <p  :class="{ invisible: !errors.apellido}" class="text-danger m-0">
-                                    {{errors.apellido || "error"}}
+                                    {{errors.apellido}}
                                 </p>
                             </div>
                             <div class="p-0 d-flex flex-column">
                                 <label for="telefono" class="m-0">Teléfono</label>
-                                <input type="tel" class="input" id="telefono" v-model="data.telefono" placeholder="ejemplo: 2213653448">
+                                <input type="tel" class="input" id="telefono" v-model="data.telefono">
                                 <p  :class="{ invisible: !errors.telefono}" class="text-danger m-0">
-                                    {{errors.telefono || "error"}} 
+                                    {{errors.telefono}} 
                                 </p>
                             </div>
                             <div class="p-0 d-flex flex-column">
                                 <label for="mascota" class="m-0">Mascota</label>
-                                <select type="text" class="input" id="mascota" v-model="data.mascota" placeholder="ejemplo: perro">
+                                <select type="text" class="input" id="mascota" v-model="data.mascota">
                                     <option value="" disabled>Qué mascota tiene...</option>
                                     <option value="perro">Perro</option>
                                     <option value="gato">Gato</option>
                                     <option value="otro">Otro</option>
                                 </select>
                                 <p  :class="{ invisible: !errors.mascota}"class="text-danger m-0">
-                                    {{errors.mascota || "error"}}
+                                    {{errors.mascota}}
                                 </p>
                             </div>
                             <div class="p-0 d-flex flex-column" v-if='data.mascota === "otro"'>
                                 <label for="mascota" class="m-0">Aclaración de mascota</label>
                                 <input type="text" class="input" id="mascota" v-model="data.otraMascota" placeholder="ejemplo: conejo">
                                 <p  :class="{ invisible: !errors.otraMascota}"class="text-danger m-0">
-                                    {{errors.otraMascota || "error"}}
+                                    {{errors.otraMascota}}
                                 </p>
                             </div>
                             <div class="p-0 d-flex flex-column">
-                                <label for="mensaje" class="m-0">Mensaje</label>
-                                <textarea class="input textareaNoResizable" id="mensaje" rows="5" v-model="data.mensaje" placeholder="escriba su mensaje..."></textarea>
+                                <label for="mensaje" class="m-0">Consulta</label>
+                                <textarea class="input textareaNoResizable" id="mensaje" rows="5" v-model="data.mensaje" placeholder="escriba su consulta..."></textarea>
                                 <p  :class="{ invisible: !errors.mensaje}" class="text-danger m-0">
-                                    {{errors.mensaje || "error"}}
+                                    {{errors.mensaje}}
                                 </p>
                             </div>
-                            <button class="boton-contact mt-1" 
+                            <button class="boton-contact mt-1 botonHover" 
                                     type="submit" 
                                     @click="submit">Enviar</button>
-                </form>
+                        </form>
+                        <div class="d-flex flex-column p-4 sizeMap align-items-center">
+                            <h3 class="mb-4 text-center">Dónde encontrarnos</h3>
+                            <span>Dirección: Paraguay 2334 5 F</span>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.2323906845527!2d-58.402139540300006!3d-34.5982846409572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca9158e82c41%3A0xafb5fe117a2c5a52!2sParaguay%202334%2C%20C1121ABL%20CABA!5e0!3m2!1sen!2sar!4v1673797160717!5m2!1sen!2sar" 
+                            width="300" 
+                            height="350" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+           
                     </div>
                     
                 </div>
