@@ -8,7 +8,6 @@ createApp( {
             valorDeBusqueda: "",
             chequeados: [],
             tarjetasFiltradas : [],
-            sin_datos:"looding",
             carrito:[],
             aux:[]
         }
@@ -17,7 +16,7 @@ createApp( {
         fetch(`https://mindhub-xj03.onrender.com/api/petshop`)
             .then( respuesta => respuesta.json() )
             .then( datos => {
-                this.disponibles = datos.map(e=>{
+                this.disponibles =[...new Set( datos.map(e=>{
                     if(e.categoria=="farmacia"){
                         return{
                             _id:e._id,
@@ -25,7 +24,7 @@ createApp( {
 
                         }
                     }
-                })
+                }))]
                 this.tarjetas= datos.filter(e=>e.categoria=="farmacia")
                 this.categorias=datos.filter(e=>e.categoria=="farmacia")
                 this.tarjetasFiltradas = datos.filter(e=>e.categoria=="farmacia")
@@ -33,6 +32,7 @@ createApp( {
                 this.categorias = [ ...new Set( this.categorias.map( tar => tar.precio ) ) ]
             } )
             .catch( )   
+            JSON.parse(localStorage.getItem("carrito"))
     },
     methods: {
     filtroCruzado: function(){
@@ -44,14 +44,15 @@ createApp( {
                 this.tarjetasFiltradas = filtradosPorCheck 
             }
         },
-    agregar: function(array){
-            if(array.disponibles==0){
+    agregar: function(objeto){
+            if(objeto.disponibles==0){
                 alert("no hay stock disponible")
             }
-            if(array.disponibles>0){
-                this.carrito=this.carrito.concat(array)
-                array.disponibles--
+            if(objeto.disponibles>0){
+                this.carrito=this.carrito.concat(objeto)
+                objeto.disponibles--
                 console.log(this.carrito)
+                localStorage.setItem("carrito",JSON.stringify(this.carrito))
             }
 
         },
@@ -85,9 +86,13 @@ createApp( {
                     console.log(this.carrito)
                 }
             }                
-            else if(this.carrito.length==0){
+                else if(this.carrito.length==0){
                     alert("no hay productos que eliminar en el carrito ")
                 }
+                else if(this.carrito.length>0){
+                    alert("ese producto no se encuentra en el carrito")
+                }
+                localStorage.setItem("carrito",JSON.stringify(this.carrito))
         }
 
     },
