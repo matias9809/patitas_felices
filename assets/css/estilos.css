@@ -85,16 +85,20 @@ footer{
 .info__modal__ttl{
     font-size: 1.6rem;
     font-weight: 600;
+    color: #6a9888;
+    border-bottom: 3px solid #6a9888;
 }
 
 .info__modal__precio{
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     font-weight: 600;
+    color: #e6546b;
 }
 
 .info__modal__contenedor__texto{
     margin-left: 2rem;
 }
+
 
 /* ---- C A R D S ---- */
 .card{

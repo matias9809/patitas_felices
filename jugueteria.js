@@ -8,28 +8,35 @@ createApp( {
             chequeados: [],
             tarjetasFiltradas : [],
             sin_datos:"looding",
-            informacionDeTarjeta: ""
+            informacionDeTarjeta: "",
+            tarjetasFiltradasJuguetes: [],
+            tarjetasFiltradasFarmacia: [],
+            tarjetasFarmacia: [],
+            tarjetasJuguete: []
         }
     },
     created(){
         fetch(`https://mindhub-xj03.onrender.com/api/petshop`)
             .then( respuesta => respuesta.json() )
             .then( datos => {
-                this.tarjetas = datos.filter(e=>e.categoria=="jugueteria")
-                this.tarjetasFiltradas = this.tarjetas
+                this.tarjetas = datos
+                this.tarjetasFarmacia = datos.filter(e=>e.categoria=="farmacia")
+                this.tarjetasJuguetes = datos.filter(e=>e.categoria=="jugueteria")
+                this.tarjetasFiltradasJuguetes = this.filtroCruzado(this.tarjetasJuguetes)
+                this.tarjetasFiltradasFarmacia = this.filtroCruzado(this.tarjetasFarmacia)
                 this.categorias = [ ...new Set( this.tarjetas.map( tar => tar.categoria ) ) ]
-                this.informacionDeTarjeta = ""
+                
             } )
             .catch( )   
     },
     methods: {
-        filtroCruzado: function(){
-            let filtradoPorBusqueda = this.tarjetas.filter( eventos => eventos.producto.toLowerCase().includes( this.valorDeBusqueda.toLowerCase()))
+        filtroCruzado: function(array2){
+            let filtradoPorBusqueda = array2.filter( eventos => eventos.producto.toLowerCase().includes( this.valorDeBusqueda.toLowerCase()))
             if( this.chequeados.length === 0 ){
-                this.tarjetasFiltradas = filtradoPorBusqueda
+                return filtradoPorBusqueda
             }else{
                 let filtradosPorCheck = filtradoPorBusqueda.filter( eventos => this.chequeados.includes( eventos.categoria ))
-                this.tarjetasFiltradas = filtradosPorCheck 
+                return filtradosPorCheck 
             }
         },
         verMas: function(id){
