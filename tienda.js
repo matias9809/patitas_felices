@@ -16,20 +16,44 @@ createApp( {
         fetch(`https://mindhub-xj03.onrender.com/api/petshop`)
             .then( respuesta => respuesta.json() )
             .then( datos => {
-                this.disponibles =[...new Set( datos.map(e=>{
-                    if(e.categoria=="farmacia"){
+                switch(document.getElementById("titulo").innerHTML){
+                    case "juguetes":{
+                        this.disponibles =[...new Set( datos.map(e=>{
+                            if(e.categoria=="jugueteria"){
+                                return{
+                                    _id:e._id,
+                                    disponibles:e.disponibles
+        
+                                }
+                            }
+                        }))]
+                        this.disponibles.shift()
+                        console.log(this.disponibles)
+                        this.tarjetas= datos.filter(e=>e.categoria=="jugueteria")
+                        this.categorias=datos.filter(e=>e.categoria=="jugueteria")
+                        this.tarjetasFiltradas = datos.filter(e=>e.categoria=="jugueteria")
+                        console.log(this.tarjetasFiltradas,this.tarjetas)
+                        this.categorias = [ ...new Set( this.categorias.map( tar => tar.precio ) ) ]
+                        break
+                    }
+                    case "farmacia":{
+                        this.disponibles =[...new Set( datos.map(e=>{
+                            if(e.categoria=="farmacia"){
                         return{
                             _id:e._id,
                             disponibles:e.disponibles
-
-                        }
+                                }
+                            }
+                        }))]
+                        this.tarjetas= datos.filter(e=>e.categoria=="farmacia")
+                        this.categorias=datos.filter(e=>e.categoria=="farmacia")
+                        this.tarjetasFiltradas = datos.filter(e=>e.categoria=="farmacia")
+                        console.log(this.tarjetasFiltradas,this.tarjetas)
+                        this.categorias = [ ...new Set( this.categorias.map( tar => tar.precio ) ) ]
+                        break
                     }
-                }))]
-                this.tarjetas= datos.filter(e=>e.categoria=="farmacia")
-                this.categorias=datos.filter(e=>e.categoria=="farmacia")
-                this.tarjetasFiltradas = datos.filter(e=>e.categoria=="farmacia")
-                console.log(this.tarjetasFiltradas,this.tarjetas)
-                this.categorias = [ ...new Set( this.categorias.map( tar => tar.precio ) ) ]
+                }
+
             } )
             .catch( )   
             JSON.parse(localStorage.getItem("carrito"))
@@ -86,13 +110,13 @@ createApp( {
                     console.log(this.carrito)
                 }
             }                
-                else if(this.carrito.length==0){
-                    alert("no hay productos que eliminar en el carrito ")
-                }
-                else if(this.carrito.length>0){
-                    alert("ese producto no se encuentra en el carrito")
-                }
-                localStorage.setItem("carrito",JSON.stringify(this.carrito))
+            else if(this.carrito.length==0){
+                alert("no hay productos que eliminar en el carrito ")
+            }
+            else if(this.carrito.length>0){
+                alert("ese producto no se encuentra en el carrito")
+            }
+            localStorage.setItem("carrito",JSON.stringify(this.carrito))
         }
 
     },
