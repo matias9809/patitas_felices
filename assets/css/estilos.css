@@ -2,28 +2,28 @@
     margin: 0;
     padding: 0;
 }
-.colorNav{
+.color__navegador{
     background-color:rgb(255, 132, 130, .6);
     border: 2px solid #ff8482 ;
 }
-.colorCarrito{
+.color__carrito{
     background-color: #c9daa4cc;
 }
-.colorBotones{
+.color__botones{
     border: 2px solid #ff8482;
     border-radius: 0.5rem;
 }
-.colorBotones:hover{
+.color__botones:hover{
     border: 2px solid #ff8482;
     border-radius: 0.5rem;
     background-color: #ff8482;
 }
-.colorBotonCompra{
+.color__boton__compra{
     border: 2px solid #91be95;
     border-radius: 0.5rem;
     background-color: #c9daa4cc;
 }
-.colorBotonCompra:hover{
+.color__boton__compra:hover{
     border: 2px solid #91be95;
     border-radius: 0.5rem;
     background-color: #91be95;
