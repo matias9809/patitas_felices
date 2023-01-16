@@ -9,7 +9,8 @@ createApp( {
             chequeados: [],
             tarjetasFiltradas : [],
             carrito:[],
-            aux:[]
+            aux:[],
+            informacionDeTarjeta: ""
         }
     },
     created(){
