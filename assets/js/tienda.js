@@ -100,8 +100,10 @@ createApp( {
                 alert("ese producto no se encuentra en el carrito")
             }
             localStorage.setItem("carrito",JSON.stringify(this.carrito))
+        },
+        verMas: function(id){
+            this.tarjetas.forEach(tarjeta => tarjeta._id === id ? this.informacionDeTarjeta = tarjeta : `No hay informacion acerca del producto` );
         }
-
     },
 
 } ).mount("#app")
