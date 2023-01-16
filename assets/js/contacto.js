@@ -12,7 +12,7 @@ createApp({
                 otraMascota: "",
                 mensaje: ""
             },
-            errors: {
+            errores: {
                 nombre: "",
                 apellido: "",
                 telefono: "",
@@ -21,7 +21,7 @@ createApp({
                 mensaje: "",
 
             },
-            sending: null
+            enviando: null
 
         }
 
@@ -31,35 +31,35 @@ createApp({
 
             this.evaluarInputs(true);
 
-            if(!Object.values(this.errors).some(e => e !== "") || 
-                Object.entries(this.errors).filter(e => e[1] !== "").length === 1 && 
-                this.errors.otraMascota &&
+            if(!Object.values(this.errores).some(e => e !== "") || 
+                Object.entries(this.errores).filter(e => e[1] !== "").length === 1 && 
+                this.errores.otraMascota &&
                 this.data.mascota !== "otro" ){
 
-                this.sending = true;
+                this.enviando = true;
 
-                setTimeout(() => this.sending = false, 2000)
+                setTimeout(() => this.enviando = false, 2000)
 
             }
 
         },
-        evaluarInputs(isSending){
+        evaluarInputs(isenviando){
 
-            for(let [key] of Object.entries(this.errors)){
+            for(let [key] of Object.entries(this.errores)){
 
-                if (isSending && !this.data[key]) this.errors[key] = "*campo obligatorio";
+                if (isenviando && !this.data[key]) this.errores[key] = "*campo obligatorio";
 
-                else if(this.data[key]) this.errors[key] = "";
+                else if(this.data[key]) this.errores[key] = "";
 
                 if(this.data[key]){
 
                     if(!/^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/g.test(this.data[key]) && 
                         (   key === "nombre" || 
                             key === "apellido" || 
-                            key === "OtraMascota")) this.errors[key] = "*sólo introducir letras";
+                            key === "OtraMascota")) this.errores[key] = "*sólo introducir letras";
     
                     else if(key === "telefono" && 
-                            !/^[0-9]+$/g.test(this.data[key])) this.errors.telefono = "*sólo introducir números";
+                            !/^[0-9]+$/g.test(this.data[key])) this.errores.telefono = "*sólo introducir números";
 
                 }
 
