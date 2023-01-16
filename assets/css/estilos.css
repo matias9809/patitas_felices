@@ -1,0 +1,187 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body__inicio{
+    background-image: url("../imagenes/fondoinicio.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.main__inicio{
+    height: 90vh;
+    overflow: hidden;
+}
+
+.inicio{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.inicio__perro__img{
+    height: 45vw;
+}
+
+.contenedor__texto__inicio{
+    width: 60vw;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 10px 10px 7px -5px rgba(0,0,0,0.27);
+}
+
+.h2__inicio{
+    font-size: 5.5vw;
+    margin-left: 6rem;
+    color: #3e66a2;
+}
+
+.h1__inicio{
+    font-size: 5.5vw;
+    border-bottom: .6rem solid rgb(199, 187, 122);
+    color: #e6546b;
+}
+
+.p__inicio{
+    font-size: 1.7rem;
+    text-align: right;
+    margin-top: 2rem;
+}
+
+footer{
+    background-color: #6a9888;
+    height: 12vh;
+    border-top: 3px solid white;
+} 
+
+/* ---- F A R M A C I A ---- */
+
+.main__juegueteria{
+    background-image: url("../imagenes/fondojuguetes.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.main__farmacia{
+    background-image: url("../imagenes/fondofarmacia.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* ---- M O D A L ---- */
+
+.modal{
+    --bs-modal-width: 50vw !important;
+}
+
+.info__modal__img{
+    width: 40vw;
+    height: 40vh;
+}
+
+.info__modal__ttl{
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.info__modal__precio{
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.info__modal__contenedor__texto{
+    margin-left: 2rem;
+}
+
+/* ---- C A R D S ---- */
+.card{
+    box-shadow: 10px 10px 7px -5px rgba(0,0,0,0.27) !important;
+    height: 55vh !important;
+    transition: .5s;
+}
+
+.card:hover{
+    transform: scale(1.05);
+}
+
+.tarjeta__imagen__contenedor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8d8a5;
+    border-radius: .3rem .3rem 1rem 1rem;
+    height: 14vh;
+    width: 18.7vw;
+    margin-bottom: 1.5rem;
+}
+
+.tarjeta__imagen{
+    margin-top: 4rem;
+    border-radius: 50% !important;
+    height: 8rem;
+    width: 8rem !important;
+    object-fit: cover !important;
+    border: 5px solid white;
+    transition: .5s;
+}
+
+.card-title{
+    color: #c88e86;
+    font-size: 1.2rem;
+}
+
+.card-text{
+    color: #6a9888;
+}
+
+.tarjeta__precio__disponibles__contenedor{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tarjeta__botones__contenedor{
+    position: absolute;
+    bottom: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.boton__tarjeta-izquierdo{
+    margin-right: 2rem;
+}
+
+.boton__tarjeta{
+    background-color: #c88b83 !important;
+    border: 1px solid #c88b83 !important;
+}
+
+.boton__tarjeta:hover{
+    background-color: #f8d8a5 !important;
+    border: 1px solid #f8d8a5 !important;
+    color: #6a9888 !important;
+}
+
+@media (max-width: 788px){
+
+    .contenedor__texto__inicio{
+        width: 60vw;
+    }
+    
+    .h2__inicio{
+        font-size: 6.5vw;
+        margin-left: 2rem;
+    }
+
+    .h1__inicio{
+        font-size: 6.5vw;
+        border-bottom: .3rem solid white;
+    }
+
+    .p__inicio{
+        font-size: 1.5rem;
+        margin-top: 1rem;
+    }
+}
