@@ -28,11 +28,9 @@ createApp( {
                             }
                         }))]
                         this.disponibles.shift()
-                        console.log(this.disponibles)
                         this.tarjetas= datos.filter(e=>e.categoria=="jugueteria")
                         this.categorias=datos.filter(e=>e.categoria=="jugueteria")
                         this.tarjetasFiltradas = datos.filter(e=>e.categoria=="jugueteria")
-                        console.log(this.tarjetasFiltradas,this.tarjetas)
                         this.categorias = [ ...new Set( this.categorias.map( tar => tar.precio ) ) ]
                         break
                     }
@@ -48,7 +46,6 @@ createApp( {
                         this.tarjetas= datos.filter(e=>e.categoria=="farmacia")
                         this.categorias=datos.filter(e=>e.categoria=="farmacia")
                         this.tarjetasFiltradas = datos.filter(e=>e.categoria=="farmacia")
-                        console.log(this.tarjetasFiltradas,this.tarjetas)
                         this.categorias = [ ...new Set( this.categorias.map( tar => tar.precio ) ) ]
                         break
                     }
@@ -75,39 +72,25 @@ createApp( {
             if(objeto.disponibles>0){
                 this.carrito=this.carrito.concat(objeto)
                 objeto.disponibles--
-                console.log(this.carrito)
                 localStorage.setItem("carrito",JSON.stringify(this.carrito))
             }
 
         },
         eliminar: function(objeto){
-            console.log("inicio")
-            console.log(this.carrito.filter(e=>e._id===objeto._id))
-            console.log(this.carrito)
-            for(let prueba of this.carrito){
-                console.log(prueba)
-            }
             let filtro=this.disponibles.find(e=>e._id==objeto._id)
             if(this.carrito.some(e=>e._id==objeto._id)){
                 this.aux=this.carrito.filter(e=>e._id==objeto._id)
-                console.log(this.aux)
-                console.log(objeto.disponibles,filtro.disponibles)
                 if(objeto.disponibles<filtro.disponibles){
-                    console.log("llego")
                     this.aux.shift()
                     objeto.disponibles++
-                    console.log("eliminar 1",this.aux)
                 }
                 if(this.aux.length>0){
-                console.log("aux mayor a 0")
                 this.carrito=this.carrito.filter(e=>e._id!=objeto._id)
                 this.carrito=this.carrito.concat(this.aux)
-                console.log(this.carrito)}
+                }
 
                 else{
-                    console.log("else")
                     this.carrito=this.carrito.filter(e=>e._id!=objeto._id)
-                    console.log(this.carrito)
                 }
             }                
             else if(this.carrito.length==0){
