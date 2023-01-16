@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.color__navegador{
+    background-color:rgb(255, 132, 130, .6);
+    border: 2px solid #ff8482 ;
+}
+.color__carrito{
+    background-color: #c9daa4cc;
+}
+.color__botones{
+    border: 2px solid #ff8482;
+    border-radius: 0.5rem;
+}
+.color__botones:hover{
+    border: 2px solid #ff8482;
+    border-radius: 0.5rem;
+    background-color: #ff8482;
+}
+.color__boton__compra{
+    border: 2px solid #91be95;
+    border-radius: 0.5rem;
+    background-color: #c9daa4cc;
+}
+.color__boton__compra:hover{
+    border: 2px solid #91be95;
+    border-radius: 0.5rem;
+    background-color: #91be95;
+}
+
+
+d{color : #ff8482 ;  
+color : #ffb294 ; 
+color : #f8d8a5 ;
+color : #91be95 ;
+color : #635a49 ; }
+
+d{color : #da8f72 ; 
+color : #ffe792 ; 
+color : #c9daa4 ; 
+color : #8acbb5 ;}
