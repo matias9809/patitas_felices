@@ -15,10 +15,10 @@
 <body>
     <div id="app">
         {{reEvaluarInputs}}
-        <div    class="d-flex flex-column justify-content-center align-items-center backgroundImage" 
-                style="min-height: 100vh;">
+        <div    class="d-flex flex-column backgroundImage" 
+                style="min-height: 100vh; padding: 20px;">
             
-            <div class="d-flex gap-5 pt-4 justify-content-center align-items-center">
+            <div class="d-flex gap-5 justify-content-center">
                 <img    src="./assets/imagenes/perrocontacto.png" 
                         alt="perro-con-gabardina" 
                         width="300" 
@@ -51,7 +51,7 @@
                                 autoplay></lottie-player>
                                 <p class="fs-5 mt-2">Mensaje recibido</p>
                             </template>
-                            <button class="boton-otroMensaje botonHover" 
+                            <button     class="boton-otroMensaje botonHover"
                                         @click="sending = null"
                                         :class="{ invisible: sending !== false}"
                                         >Enviar otra consulta</button>
@@ -115,7 +115,7 @@
                         </form>
                         <div class="d-flex flex-column p-4 sizeMap align-items-center">
                             <h3 class="mb-4 text-center">Dónde encontrarnos</h3>
-                            <span>Dirección: Paraguay 2334 5 F</span>
+                            <span><strong>Dirección</strong>: Paraguay 2334 5 F</span>
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.2323906845527!2d-58.402139540300006!3d-34.5982846409572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca9158e82c41%3A0xafb5fe117a2c5a52!2sParaguay%202334%2C%20C1121ABL%20CABA!5e0!3m2!1sen!2sar!4v1673797160717!5m2!1sen!2sar" 
                             width="300" 
                             height="350" 

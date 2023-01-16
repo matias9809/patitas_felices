@@ -24,13 +24,14 @@ html, body, #app {
 .img-contacto{
 
   position: relative;
-  top: 40px;
+  top: 100px;
 
 }
 
 .loader-content{
 
   width: 400px;
+  min-height: 605px;
   display: flex;
   flex-direction: column;
   justify-content: center;
