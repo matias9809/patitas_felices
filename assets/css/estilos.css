@@ -213,14 +213,13 @@ body,
 
 .img__contacto {
 
-    position: relative;
-    top: 100px;
 
 }
 
 .loader__content {
     justify-self: center;
     width: 290px;
+    height: 550px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -230,10 +229,11 @@ body,
 
 .contenedor__form {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    width: 800px;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    row-gap: 20px;
     column-gap: 10px;
-    min-height: 600px;
+    width: 600px;
+    max-width: 90vw;
     position: relative;
     background-color: white;
     padding: 10px;
@@ -245,7 +245,6 @@ body,
 
 
 .input {
-
     width: 100%;
     max-width: 90vw;
     padding: 5px;
