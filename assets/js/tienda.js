@@ -20,8 +20,8 @@ createApp( {
         fetch(`https://mindhub-xj03.onrender.com/api/petshop`)
             .then( respuesta => respuesta.json() )
             .then( datos => {
-                switch(document.getElementById("titulo").innerHTML){
-                    case "PATITAS FELICES | JUGUETES":{
+                switch(document.title.split("|")[1].trim()){
+                    case "Juguetes":{
                         this.disponibles =[...new Set( datos.map(e=>{
                             if(e.categoria=="jugueteria"){
                                 return{
@@ -39,7 +39,7 @@ createApp( {
                         this.categoriasOrdenadasMenorAMayor = this.categoriasFiltradas.sort((a, b) => a -b)
                         break
                     }
-                    case "PATITAS FELICES | FARMACIA":{
+                    case "Farmacia":{
                         this.disponibles =[...new Set( datos.map(e=>{
                             if(e.categoria=="farmacia"){
                         return{
