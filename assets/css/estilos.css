@@ -11,7 +11,6 @@
 }
 
 .main__inicio{
-    min-height: 94%;
     position: relative;
 }
 
@@ -45,7 +44,7 @@
     padding: 0 !important;
 }
 .color__navegador{
-    background-color:rgb(255, 132, 130, .6) !important;
+    background-color:rgb(255, 132, 130, .4) !important;
     border-bottom: 2px solid #ffffff ;
 }
 .color__carrito{
@@ -60,7 +59,7 @@
 .color__botones:hover{
     /*border: 2px solid #ff8482;
     border-radius: 0.5rem;*/
-    background-color:  rgba(88, 113, 156, 0.6);
+    background-color:  rgba(51, 70, 104, 0.6);
 }
 .color__boton__compra{
     border: 2px solid #91be95;
@@ -74,7 +73,7 @@
 }
 
 .texto__navbar{
-    
+    color: black;
     font-size: 1.3rem !important;
 }
 .texto__navbar:hover{
@@ -85,14 +84,10 @@
     width: 18vw;
 }
 
-.main__inicio{
-    height: 82vh;
-    overflow: hidden;
-}
-
 .main__farmacia{
     height: 100%;
 }
+
 .inicio{
     display: flex;
     justify-content: space-around;
@@ -101,35 +96,33 @@
 }
 
 .inicio__perro__img{
-    height: 45vw;
+    height: 44vw;
 }
 
 .contenedor__texto__inicio{
     width: 50vw;
-    height: 40vh;
     background-color: rgba(255, 255, 255, 0.7);
     padding: 1rem;
     border-radius: 1rem;
     box-shadow: 10px 10px 7px -5px rgba(0,0,0,0.27);
-    margin-top: -9rem;
 }
 
 .h2__inicio{
-    font-size: 4.5rem;
+    font-size: 6vw;
     margin-top: -1rem;
     margin-left: 6rem;
     color: #3e66a2;
 }
 
 .h1__inicio{
-    font-size: 4.5rem;
+    font-size: 6vw;
     margin-top: -2rem;
     border-bottom: .6rem solid rgb(199, 187, 122);
     color: #e6546b;
 }
 
 .p__inicio{
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     text-align: right;
 }
 
@@ -300,28 +293,6 @@ footer{
     background-color: #f8d8a5 !important;
     border: 1px solid #f8d8a5 !important;
     color: #6a9888 !important;
-}
-
-@media (max-width: 788px){
-
-    .contenedor__texto__inicio{
-        width: 60vw;
-    }
-    
-    .h2__inicio{
-        font-size: 6.5vw;
-        margin-left: 2rem;
-    }
-
-    .h1__inicio{
-        font-size: 6.5vw;
-        border-bottom: .3rem solid white;
-    }
-
-    .p__inicio{
-        font-size: 1.5rem;
-        margin-top: 1rem;
-    }
 }
 
 /* C O N T A C T */
@@ -578,11 +549,11 @@ ul{
 .footer__columna{
     width: 25%;
     padding: 0 15px;
-    height: 15vh;
-    margin-top: -7vh;
+
 }
 .footer__columna h4{
-	font-size: 20px;
+    margin-top: 2rem;
+	font-size: 1.5rem;
 	color: #ffffff;
 	text-transform: capitalize;
 	margin-bottom: 15px;
@@ -603,7 +574,7 @@ ul{
 	margin-bottom: 7px;
 }
 .footer__columna ul li a{
-	font-size: 15px;
+	font-size: 1.1rem;
 	text-transform: capitalize;
 	color: #ffffff;
 	text-decoration: none;
@@ -634,23 +605,84 @@ ul{
 	background-color: #ffffff;
 }
 
-/*responsive*/
+/* --- INICIO RESPONSIVE --- */
+
+@media (max-width: 1920px){
+    .h2__inicio{
+        font-size: 5vw;
+        margin-left: 8rem;
+    }
+
+    .h1__inicio{
+        font-size: 5vw;
+        border-bottom: .3rem solid white;
+    }
+
+    .p__inicio{
+        font-size: 1.5rem;
+        margin-top: 1rem;
+    }
+
+    .footer__columna h4{
+        margin-top: 0rem;
+    }
+
+}
+
 @media(max-width: 767px){
-  .footer__columna{
-    width: 50%;
-    margin-bottom: 10vh;
-    
-}
-.footer{
-    min-height: 150px;
-}
-}
-@media(max-width: 574px){
-  .footer__columna{
+    .nav__imagen{
+        width: 25vw;
+    }
+    .inicio__perro__img{
+        width: 30vh;
+    }
+    .h2__inicio{
+        font-size: 4vw;
+        margin-left: 5rem;
+    }
+
+    .h1__inicio{
+        font-size: 4vw;
+        margin-top: -1rem;
+        border-bottom: .3rem solid white;
+    }
+
+    .p__inicio{
+        font-size: 1.1rem;
+        margin-top: 1rem;
+    }
+
+    .carousel{
+        margin-top: 1rem;
+        height: 10vh !important;
+    }
+
+    .w-100{
+        height: 10vh !important;
+    }
+
+    .footer__columna{
+      width: 50%;
+      margin-bottom: 10vh;
+    }
+
+    .footer{
+        min-height: 150px;
+    }
+    .footer__columna h4{
+        font-size: 1.2rem;
+    }
+    .footer__columna ul li a{
+        font-size: 1rem;
+    }
+  }
+  
+  @media(max-width: 574px){
+    .footer__columna{
     width: 100%;
 /*     margin-bottom: 16vh; */
-  }
-    .footer{
-        min-height: 50px;
     }
-}
+  .footer{
+      min-height: 50px;
+  }
+  }
