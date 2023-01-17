@@ -237,7 +237,7 @@ body{
 .loader__content {
     justify-self: center;
     width: 290px;
-    height: 550px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
