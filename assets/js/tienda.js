@@ -9,7 +9,10 @@ createApp( {
             chequeados: [],
             tarjetasFiltradas : [],
             carrito:[],
-            aux:[]
+            aux:[],
+            informacionDeTarjeta: "",
+            categoriasFiltradas: [],
+            categoriasOrdenadasMenorAMayor: []
         }
     },
     created(){
@@ -17,7 +20,7 @@ createApp( {
             .then( respuesta => respuesta.json() )
             .then( datos => {
                 switch(document.getElementById("titulo").innerHTML){
-                    case "juguetes":{
+                    case "PATITAS FELICES | JUGUETES":{
                         this.disponibles =[...new Set( datos.map(e=>{
                             if(e.categoria=="jugueteria"){
                                 return{
@@ -31,10 +34,11 @@ createApp( {
                         this.tarjetas= datos.filter(e=>e.categoria=="jugueteria")
                         this.categorias=datos.filter(e=>e.categoria=="jugueteria")
                         this.tarjetasFiltradas = datos.filter(e=>e.categoria=="jugueteria")
-                        this.categorias = [ ...new Set( this.categorias.map( tar => tar.precio ) ) ]
+                        this.categoriasFiltradas = [ ...new Set( this.categorias.map( tar => tar.precio ) ) ]
+                        this.categoriasOrdenadasMenorAMayor = this.categoriasFiltradas.sort((a, b) => a -b)
                         break
                     }
-                    case "farmacia":{
+                    case "PATITAS FELICES | FARMACIA":{
                         this.disponibles =[...new Set( datos.map(e=>{
                             if(e.categoria=="farmacia"){
                         return{
@@ -46,7 +50,8 @@ createApp( {
                         this.tarjetas= datos.filter(e=>e.categoria=="farmacia")
                         this.categorias=datos.filter(e=>e.categoria=="farmacia")
                         this.tarjetasFiltradas = datos.filter(e=>e.categoria=="farmacia")
-                        this.categorias = [ ...new Set( this.categorias.map( tar => tar.precio ) ) ]
+                        this.categoriasFiltradas = [ ...new Set( this.categorias.map( tar => tar.precio ) ) ]
+                        this.categoriasOrdenadasMenorAMayor = this.categoriasFiltradas.sort((a, b) => a -b)
                         break
                     }
                 }
