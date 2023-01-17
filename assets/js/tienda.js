@@ -2,28 +2,61 @@ const { createApp } = Vue
 createApp( {
     data(){
         return {
-            todosLosProductos: [],
-            compras: [],
-            productos:[],
-            informacionDeTarjeta:{},
-            chequeados:[],
-            valorDeBusqueda:"",
+            disponibles:[],
+            tarjetas : [],
+            categorias : [],
+            valorDeBusqueda: "",
+            chequeados: [],
+            tarjetasFiltradas : [],
+            carrito:[],
+            aux:[],
+            informacionDeTarjeta: "",
+            categoriasFiltradas: [],
+            categoriasOrdenadasMenorAMayor: [],
+            estaCargando: true
         }
     },
     created(){
         fetch(`https://mindhub-xj03.onrender.com/api/petshop`)
             .then( respuesta => respuesta.json() )
             .then( datos => {
-                this.todosLosProductos=[...datos];
-                this.todosLosProductos.forEach(producto=>producto.ventas=0) 
-                if(localStorage.getItem("nuestrosProductos"))
-                this.todosLosProductos = JSON.parse(localStorage.getItem("nuestrosProductos"))
-                let nombrePagina=location.pathname;//ve pagina nombre
-                if (nombrePagina.includes("farmacia"))
-                this.productos=this.todosLosProductos.filter(producto=>producto.categoria==="farmacia");
-                else
-                this.productos=this.todosLosProductos.filter(producto=>producto.categoria==="jugueteria");
-                console.log(this.compras)
+                switch(document.title.split("|")[1].trim()){
+                    case "Jugueteria":{
+                        this.disponibles =[...new Set( datos.map(e=>{
+                            if(e.categoria=="jugueteria"){
+                                return{
+                                    _id:e._id,
+                                    disponibles:e.disponibles
+        
+                                }
+                            }
+                        }))]
+                        this.disponibles.shift()
+                        this.tarjetas= datos.filter(e=>e.categoria=="jugueteria")
+                        this.categorias=datos.filter(e=>e.categoria=="jugueteria")
+                        this.tarjetasFiltradas = datos.filter(e=>e.categoria=="jugueteria")
+                        this.categoriasFiltradas = [ ...new Set( this.categorias.map( tar => tar.precio ) ) ]
+                        this.categoriasOrdenadasMenorAMayor = this.categoriasFiltradas.sort((a, b) => a -b)
+                        break
+                    }
+                    case "Farmacia":{
+                        this.disponibles =[...new Set( datos.map(e=>{
+                            if(e.categoria=="farmacia"){
+                        return{
+                            _id:e._id,
+                            disponibles:e.disponibles
+                                }
+                            }
+                        }))]
+                        this.tarjetas= datos.filter(e=>e.categoria=="farmacia")
+                        this.categorias=datos.filter(e=>e.categoria=="farmacia")
+                        this.tarjetasFiltradas = datos.filter(e=>e.categoria=="farmacia")
+                        this.categoriasFiltradas = [ ...new Set( this.categorias.map( tar => tar.precio ) ) ]
+                        this.categoriasOrdenadasMenorAMayor = this.categoriasFiltradas.sort((a, b) => a -b)
+                        break
+                    }
+                }
+
             } )
             .catch()
     },
@@ -62,6 +95,15 @@ createApp( {
         removerCarrito:function(){
         localStorage.removeItem("nuestrosProductos");
         },
+    },
+    computed: {
+
+        cargando(){
+
+            if(!this.tarjetas.length) setTimeout(() => this.estaCargando = false, 2000)
+        
+        }
+
     }
     }).mount("#app")
 
