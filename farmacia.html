@@ -65,9 +65,13 @@
             <form class="form d-flex flex-wrap justify-content-around align-items-center m-5">
                 <div class="categ cards d-flex flex-wrap justify-content-around" id="cat">
                     <div class="check-selects" >
-                        <label class="check_sep m-3" v-if="categorias" v-for="cate of categoriasOrdenadasMenorAMayor">
-                        <input type="checkbox" v-on:change="filtroCruzado" class="checks-deks" v-model="chequeados" :value="cate" name="cate" :id="cate">
-                        ${{cate}}
+                        <label class="p-3">Rango de precio
+                            <select name="precio" class="p-1" v-on:Click="filtroCruzado" v-model="chequeados">
+                                <option value="">{{chequeados ?"ninguna":"selecciona una opcion"}}</option>
+                                <option value="1500">hasta $1500</option>
+                                <option value="1501">desde 1501 hasta 2000</option>
+                                <option value="2001">mayor a 2001</option>
+                            </select>
                         </label>
                     </div>
                 </div>

@@ -6,7 +6,7 @@ createApp( {
             tarjetas : [],
             categorias : [],
             valorDeBusqueda: "",
-            chequeados: [],
+            chequeados: "",
             tarjetasFiltradas : [],
             carrito:[],
             aux:[],
@@ -66,7 +66,17 @@ createApp( {
             if( this.chequeados.length === 0 ){
                 this.tarjetasFiltradas = filtradoPorBusqueda
             }else{
-                let filtradosPorCheck = filtradoPorBusqueda.filter( eventos => this.chequeados.includes( eventos.precio ))
+                console.log(this.chequeados)
+                let filtradosPorCheck
+                if(this.chequeados<=1500){
+                    filtradosPorCheck = filtradoPorBusqueda.filter( eventos =>this.chequeados>=eventos.precio)
+                }else if(this.chequeados==1501){
+                    filtradosPorCheck = filtradoPorBusqueda.filter( eventos => (this.chequeados<eventos.precio&&eventos.precio<=2000))
+                }
+                else if(this.chequeados==2001){
+                    filtradosPorCheck = filtradoPorBusqueda.filter( eventos => this.chequeados<=eventos.precio)
+                    
+                }
                 this.tarjetasFiltradas = filtradosPorCheck 
             }
         },
