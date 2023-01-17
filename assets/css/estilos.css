@@ -247,10 +247,10 @@ body{
 
 .contenedor__form {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
     row-gap: 20px;
     column-gap: 10px;
-    width: 600px;
+    width: 800px;
     max-width: 90vw;
     position: relative;
     background-color: white;
