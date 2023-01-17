@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
-    <link rel="shortcut icon" href="./assets/imagenes/favico.png" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/estilos.css">
+    <link rel="shortcut icon" href="./assets/imagenes/favico.png" type="image/x-icon">
     <title> Patitas Felices | Contacto </title>
 </head>
-
-<body>
 <body class="body__contacto">
     <header>
         <nav class="navbar  color__navegador d-flex flex-wrap">
@@ -58,20 +58,11 @@
     </header>
     <div id="app">
         {{reEvaluarInputs}}
-<<<<<<< HEAD
-        <div class="d-flex flex-column background__image" style="min-height: 100vh; padding: 20px;">
-            <div class="d-flex gap-5 justify-content-center">
-                <img src="./assets/imagenes/perrocontacto.png" alt="perro-con-gabardina" width="300" height="550"
-                    class="img__contacto">
-                <div class="d-flex flex-column justify-content-center">
-=======
         <section class="d-flex align-items-center justify-content-center" style="min-height: 80vh; padding: 20px;">
-
             <article class="d-flex justify-content-center">
                 <img src="./assets/imagenes/perrocontacto.png" alt="perro-con-gabardina" width="300" height="550"
                     class="img__contacto">
                 <div class="d-flex flex-column">
->>>>>>> e950e382e11b67e75a1b05cb2449b825d7a4394b
                     <h1 class="p-0 m-0 mt-2 d-flex align-items-center">
                         <img src="./assets/imagenes/favico.png" />
                         <span>PATITAS FELICES</span>
@@ -102,16 +93,9 @@
                             <button class="boton__otro__mensaje boton__hover" @click="enviando = null"
                                 :class="{ invisible: enviando !== false}">Enviar otra consulta</button>
                         </div>
-<<<<<<< HEAD
-                        <form action="" class="container m-0 d-flex flex-column gap-1" @submit.prevent
-                            v-if="enviando === null" style="max-width: 800px;">
-                            <h3 class="text-center">Envianos tu consulta</h3>
-=======
-
                         <form action="" class="container m-0 d-flex flex-column gap-1" @submit.prevent
                             v-if="enviando === null" style="max-width: 800px;">
                             <h3 class="text-center">Escribinos</h3>
->>>>>>> e950e382e11b67e75a1b05cb2449b825d7a4394b
                             <div class="d-flex flex-column p-0">
                                 <label for="nombre" class="">Nombre</label>
                                 <input type="text" class="input" id="nombre" v-model="data.nombre">
@@ -145,9 +129,9 @@
                                     {{errores.mascota}}
                                 </p>
                             </div>
-                            <div class="p-0 d-flex flex-column" v-if='data.mascota === "otro"'>
+                            <div class="p-0 d-flex flex-column">
                                 <label for="mascota" class="m-0">Aclaración de mascota</label>
-                                <input type="text" class="input" id="mascota" v-model="data.otraMascota"
+                                <input type="text" class="input" v-model="data.otraMascota"
                                     placeholder="ejemplo: conejo">
                                 <p :class="{ invisible: !errores.otraMascota}" class="text-danger m-0">
                                     {{errores.otraMascota}}
@@ -164,20 +148,6 @@
                             <button class="boton__contact mt-1 boton__hover" type="submit"
                                 @click="submit">Enviar</button>
                         </form>
-<<<<<<< HEAD
-                        <div class="d-flex flex-column p-2 align-items-center">
-                            <h3 class="mb-4 text-center">Dónde encontrarnos</h3>
-                            <span><strong>Dirección</strong>: Paraguay 2334 5 F</span>
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.2323906845527!2d-58.402139540300006!3d-34.5982846409572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca9158e82c41%3A0xafb5fe117a2c5a52!2sParaguay%202334%2C%20C1121ABL%20CABA!5e0!3m2!1sen!2sar!4v1673797160717!5m2!1sen!2sar"
-                                width="250" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-=======
                         <div class="d-flex flex-column  align-items-center">
                             <h3 class="mb-2 text-center">Dónde encontrarnos</h3>
                                 <span><strong>Dirección</strong>: Paraguay 2334 5 F</span>
@@ -187,16 +157,13 @@
                                     referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div> 
                     </div>
-
                 </div>
-            </div>
-
+            </article>
         </section>
->>>>>>> e950e382e11b67e75a1b05cb2449b825d7a4394b
     </div>
     <footer class="footer">
         <div class="container">
-            <div class="row">
+            <div class="d-flex">
                 <div class="footer__columna">
                     <h4>company</h4>
                     <ul>
@@ -236,7 +203,5 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/js/contacto.js"></script>
-
 </body>
-
 </html>

@@ -30,7 +30,10 @@
 }
 
 /* ---- N A V B A R ---- */
-
+.navbar{
+    margin: 0 !important;
+    padding: 0 !important;
+}
 .color__navegador{
     background-color:rgb(255, 132, 130, .6) !important;
     border-bottom: 2px solid #ffffff ;
@@ -39,13 +42,15 @@
     background-color: #c9daa4cc;
 }
 .color__botones{
-    border: 2px solid #ff8482;
-    border-radius: 0.5rem;
+    /*border: 2px solid #ff8482;
+    border-radius: 0.5rem;*/
+    top: 15rem;
+    transition: .1s;
 }
 .color__botones:hover{
-    border: 2px solid #ff8482;
-    border-radius: 0.5rem;
-    background-color: #ff8482;
+    /*border: 2px solid #ff8482;
+    border-radius: 0.5rem;*/
+    background-color:  rgba(88, 113, 156, 0.6);
 }
 .color__boton__compra{
     border: 2px solid #91be95;
@@ -58,15 +63,30 @@
     background-color: #91be95;
 }
 
+.texto__navbar{
+    font-size: 1.3rem !important;
+}
+.texto__navbar:hover{
+    color: white !important;
+}
+
+.nav__imagen{
+    width: 18vw;
+}
+
 .main__inicio{
-    height: 90vh;
+    height: 82vh;
     overflow: hidden;
 }
 
+.main__farmacia{
+    height: 100%;
+}
 .inicio{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-top: 3rem;
 }
 
 .inicio__perro__img{
@@ -74,34 +94,53 @@
 }
 
 .contenedor__texto__inicio{
-    width: 60vw;
+    width: 50vw;
+    height: 40vh;
     background-color: rgba(255, 255, 255, 0.7);
-    padding: 3rem;
+    padding: 1rem;
     border-radius: 1rem;
     box-shadow: 10px 10px 7px -5px rgba(0,0,0,0.27);
+    margin-top: -9rem;
 }
 
 .h2__inicio{
-    font-size: 5.5vw;
+    font-size: 4.5rem;
+    margin-top: -1rem;
     margin-left: 6rem;
     color: #3e66a2;
 }
 
 .h1__inicio{
-    font-size: 5.5vw;
+    font-size: 4.5rem;
+    margin-top: -2rem;
     border-bottom: .6rem solid rgb(199, 187, 122);
     color: #e6546b;
 }
 
 .p__inicio{
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     text-align: right;
-    margin-top: 2rem;
+}
+
+/* --- C A R R U S E L --- */
+
+.carousel{
+    margin-top: 3rem;
+    width: 50vw !important;
+    height: 20vh !important;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 1rem !important;
+    box-shadow: 10px 10px 7px -5px rgba(0,0,0,0.27);
+}
+
+.w-100{
+    height: 20vh !important;
+    object-fit: cover !important;
+    border-radius: 1rem !important;
 }
 
 footer{
     background-color: #6a9888;
-    height: 12vh;
     border-top: 3px solid white;
 } 
 
@@ -132,9 +171,48 @@ footer{
 .info__modal__contenedor__texto{
     margin-left: 2rem;
 }
+/* --- T I E N D A S --- */
+.encabezado__tiendas{
+    display: flex;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: center;
+}
 
+.titulo__tiendas{
+    font-size: 5rem !important;
+}
+
+.imagen__tienda__encabezado{
+    height: 3rem;
+    margin-right: .5rem;
+    margin-top: -.5rem;
+}
+
+/*--- C H E C K --- */
+
+.contenedor__check__busqueda{
+    margin-top: -3rem;
+    background-color: #91be95;
+}
+
+.check_sep{
+    font-size: 1.2rem;
+    color: white;
+}
+
+.form-control{
+    width: 35vw !important;
+    height: 5vh !important;
+    box-shadow:inset 2px 2px 4px rgba(120, 120, 120, .4), inset -3px -3px 3px rgba(255,255,255,.4);
+}
 
 /* ---- C A R D S ---- */
+
+#card_home{
+    margin-top: -.5rem;
+    margin-bottom: 1rem;
+}
 .card{
     box-shadow: 10px 10px 7px -5px rgba(0,0,0,0.27) !important;
     height: 55vh !important;
@@ -154,7 +232,14 @@ footer{
     height: 14vh;
     width: 18.7vw;
     margin-bottom: 1.5rem;
+    transition: 1s;
 }
+
+/*.tarjeta__imagen__contenedor:hover{
+    height: 55vh;
+    border-radius: .1rem .1rem 1rem 1rem;
+    margin-bottom: -17rem;
+}*/
 
 .tarjeta__imagen{
     margin-top: 4rem;
@@ -165,6 +250,7 @@ footer{
     border: 5px solid white;
     transition: .5s;
 }
+
 
 .card-title{
     color: #c88e86;
@@ -474,8 +560,10 @@ ul{
 }
 .footer{
 	background-color: #91be95;
-    padding: 70px 0;
-    height: 100%;
+    padding: 60px 0;
+    width: 100%;
+    height: 20vh;
+    bottom: 0;
 }
 .footer__columna{
    width: 25%;
@@ -484,10 +572,10 @@ ul{
    margin-top: -7vh;
 }
 .footer__columna h4{
-	font-size: 25px;
+	font-size: 20px;
 	color: #ffffff;
 	text-transform: capitalize;
-	margin-bottom: 35px;
+	margin-bottom: 15px;
 	font-weight: 500;
 	position: relative;
 }
@@ -495,14 +583,14 @@ ul{
 	content: '';
 	position: absolute;
 	left:0;
-	bottom: -10px;
+	bottom: -7px;
 	background-color: #e91e63;
 	height: 2px;
 	box-sizing: border-box;
 	width: 50px;
 }
 .footer__columna ul li:not(:last-child){
-	margin-bottom: 10px;
+	margin-bottom: 7px;
 }
 .footer__columna ul li a{
 	font-size: 15px;
@@ -517,6 +605,7 @@ ul{
 .footer__columna ul li a:hover{
 	color: #ffffff;
 	padding-left: 8px;
+
 }
 .footer__columna .social__links a{
 	display: inline-block;
