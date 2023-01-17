@@ -66,7 +66,6 @@ createApp( {
             if( this.chequeados.length === 0 ){
                 this.tarjetasFiltradas = filtradoPorBusqueda
             }else{
-                console.log(this.chequeados)
                 let filtradosPorCheck
                 if(this.chequeados<=1500){
                     filtradosPorCheck = filtradoPorBusqueda.filter( eventos =>this.chequeados>=eventos.precio)
