@@ -18,7 +18,7 @@ createApp( {
             .then( respuesta => respuesta.json() )
             .then( datos => {
                 switch(document.getElementById("titulo").innerHTML){
-                    case "juguetes":{
+                    case "PATITAS FELICES | JUGUETES":{
                         this.disponibles =[...new Set( datos.map(e=>{
                             if(e.categoria=="jugueteria"){
                                 return{
@@ -35,7 +35,7 @@ createApp( {
                         this.categorias = [ ...new Set( this.categorias.map( tar => tar.precio ) ) ]
                         break
                     }
-                    case "farmacia":{
+                    case "PATITAS FELICES | FARMACIA":{
                         this.disponibles =[...new Set( datos.map(e=>{
                             if(e.categoria=="farmacia"){
                         return{
