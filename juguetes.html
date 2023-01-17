@@ -76,8 +76,6 @@
                 </div>
             </form>
         </section>
-        
-        <div  id="card_home" class="cards d-flex flex-wrap justify-content-center" >
             <div  id="card_home" class="cards d-flex flex-wrap justify-content-center" >
                 <div v-if="tarjetasFiltradas" class="card col-3 m-3" style="width: 18rem;" v-for="tarjeta of tarjetasFiltradas">
                     <div class="tarjeta__imagen__contenedor">
@@ -105,7 +103,6 @@
                 </div>
             </div>
             <div v-show="tarjetasFiltradas.length==0" class="text-center fs-1">No matches found</div>
-        </div>
         <div class="modal fade" id="farmacia_favoritos" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
@@ -132,7 +129,7 @@
     </main>
     <footer class="footer">
         <div class="container">
-            <div class="d-flex">
+            <div class="roww">
                 <div class="footer__columna">
                     <h4>company</h4>
                     <ul>

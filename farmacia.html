@@ -76,36 +76,33 @@
                 </div>
             </form>
         </section>
-        
         <div  id="card_home" class="cards d-flex flex-wrap justify-content-center" >
-            <div  id="card_home" class="cards d-flex flex-wrap justify-content-center" >
-                <div v-if="tarjetasFiltradas" class="card col-3 m-3" style="width: 18rem;" v-for="tarjeta of tarjetasFiltradas">
-                    <div class="tarjeta__imagen__contenedor">
-                        <img v-bind:src="tarjeta.imagen" class="card-img-top tarjeta__imagen" :alt="tarjeta.producto">
+            <div v-if="tarjetasFiltradas" class="card col-3 m-3" style="width: 18rem;" v-for="tarjeta of tarjetasFiltradas">
+                <div class="tarjeta__imagen__contenedor">
+                    <img v-bind:src="tarjeta.imagen" class="card-img-top tarjeta__imagen" :alt="tarjeta.producto">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{tarjeta.producto}}</h5>
+                    <p class="card-text">{{tarjeta.descripcion.slice(0,100)}}...</p>
+                    <div class="tarjeta__precio__disponibles__contenedor">
+                        <p class="card-text"><b>Precio: {{tarjeta.precio}}</b></p>
+                        <p class="card-text"><b>Disponibles: {{tarjeta.disponibles}}</b></p>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title text-center">{{tarjeta.producto}}</h5>
-                        <p class="card-text">{{tarjeta.descripcion.slice(0,100)}}...</p>
-                        <div class="tarjeta__precio__disponibles__contenedor">
-                            <p class="card-text"><b>Precio: {{tarjeta.precio}}</b></p>
-                            <p class="card-text"><b>Disponibles: {{tarjeta.disponibles}}</b></p>
-                        </div>
-                        <div class="tarjeta__botones__contenedor">
-                            <button type="button" class="btn btn-primary boton__tarjeta boton__tarjeta-izquierdo"
-                                data-bs-toggle="modal" data-bs-target="#farmacia_favoritos"
-                                @click="verMas(tarjeta._id)">
-                                Ver mas
-                            </button>
-                            <button type="button" class="btn btn-primary boton__tarjeta" data-bs-toggle="modal"
-                                data-bs-target="#farmacia_favoritos" @click="verMas(tarjeta._id)">
-                                Agregar al carrito
-                            </button>
-                        </div>
+                    <div class="tarjeta__botones__contenedor">
+                        <button type="button" class="btn btn-primary boton__tarjeta boton__tarjeta-izquierdo"
+                            data-bs-toggle="modal" data-bs-target="#farmacia_favoritos"
+                            @click="verMas(tarjeta._id)">
+                            Ver mas
+                        </button>
+                        <button type="button" class="btn btn-primary boton__tarjeta" data-bs-toggle="modal"
+                            data-bs-target="#farmacia_favoritos" @click="verMas(tarjeta._id)">
+                            Agregar al carrito
+                        </button>
                     </div>
                 </div>
             </div>
-            <div v-show="tarjetasFiltradas.length==0" class="text-center fs-1">No matches found</div>
         </div>
+        <div v-show="tarjetasFiltradas.length==0" class="text-center fs-1">No matches found</div> 
         <div class="modal fade" id="farmacia_favoritos" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
@@ -132,7 +129,7 @@
     </main>
     <footer class="footer">
         <div class="container">
-            <div class="d-flex">
+            <div class="roww">
                 <div class="footer__columna">
                     <h4>company</h4>
                     <ul>

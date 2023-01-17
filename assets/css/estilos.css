@@ -5,6 +5,16 @@
     font-family: "Lucida Bright", Georgia, serif; 
 }
 
+.pantalla__inicio{
+    position: absolute;
+    z-index: 2;
+}
+
+.main__inicio{
+    min-height: 94%;
+    position: relative;
+}
+
 .body__inicio{
     background-image: url("../imagenes/fondoinicio.jpg");
     background-attachment: fixed;
@@ -64,6 +74,7 @@
 }
 
 .texto__navbar{
+    
     font-size: 1.3rem !important;
 }
 .texto__navbar:hover{
@@ -215,8 +226,8 @@ footer{
 }
 .card{
     box-shadow: 10px 10px 7px -5px rgba(0,0,0,0.27) !important;
-    height: 55vh !important;
     transition: .5s;
+    height: 55vh;
 }
 
 .card:hover{
@@ -230,7 +241,6 @@ footer{
     background-color: #f8d8a5;
     border-radius: .3rem .3rem 1rem 1rem;
     height: 14vh;
-    width: 18.7vw;
     margin-bottom: 1.5rem;
     transition: 1s;
 }
@@ -244,8 +254,8 @@ footer{
 .tarjeta__imagen{
     margin-top: 4rem;
     border-radius: 50% !important;
-    height: 8rem;
-    width: 8rem !important;
+    height: 120%;
+    width:60% !important;
     object-fit: cover !important;
     border: 5px solid white;
     transition: .5s;
@@ -542,16 +552,13 @@ body{
 	line-height: 1.5;
 	/* font-family: 'Poppins', sans-serif; */
 }
-*{
-	margin:0;
-	padding:0;
-	box-sizing: border-box;
-}
+
 .container{
 	max-width: 1170px;
 	margin:auto;
 }
-.row{
+
+.roww{
 	display: flex;
 	flex-wrap: wrap;
 }
@@ -562,7 +569,7 @@ ul{
 	background-color: #91be95;
     padding: 60px 0;
     width: 100%;
-    height: 20vh;
+    min-height: 20vh;
     bottom: 0;
 }
 .footer__columna{
@@ -632,7 +639,7 @@ ul{
     
 }
 .footer{
-    height: 100%;
+    min-height: 20vh;
 }
 }
 @media(max-width: 574px){
@@ -641,6 +648,6 @@ ul{
     margin-bottom: 16vh;
   }
     .footer{
-            height: 100%;
+        min-height: 20vh;
     }
 }
