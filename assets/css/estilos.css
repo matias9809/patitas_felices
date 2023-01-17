@@ -84,6 +84,19 @@
     width: 18vw;
 }
 
+.ancho__botones__nav{
+    display: flex;
+    align-items: center;
+}
+
+.nav__texto{
+    font-size: 1.3rem;
+    padding: .7rem .5rem 0 .5rem;
+}
+
+.nav__texto:hover{
+    color: white;
+}
 .main__farmacia{
     height: 100%;
 }
@@ -182,17 +195,16 @@ footer{
 /* --- T I E N D A S --- */
 .encabezado__tiendas{
     display: flex;
-    margin-top: 2rem;
+    margin-top: 1rem;
     align-items: center;
     justify-content: center;
 }
 
 .titulo__tiendas{
-    font-size: 5rem !important;
+    font-size: 5rem;
 }
 
 .imagen__tienda__encabezado{
-    height: 3rem;
     margin-right: .5rem;
     margin-top: -.5rem;
 }
@@ -200,13 +212,14 @@ footer{
 /*--- C H E C K --- */
 
 .contenedor__check__busqueda{
-    margin-top: -3rem;
-    background-color: #91be95;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    height: 25vh;
+    margin-bottom: 2rem;
 }
 
 .check_sep{
     font-size: 1.2rem;
-    color: white;
 }
 
 .form-control{

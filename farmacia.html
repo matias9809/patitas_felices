@@ -14,13 +14,13 @@
 </head>
 <body class="body__juguetes">
     <header>
-        <nav class="navbar  color__navegador d-flex flex-wrap">
+        <nav class="navbar  color__navegador d-flex flex-wrap align-items-center">
             <div class="container-fluid">
                 <div class="d-md-flex text-center">
-                    <a class="nav-link color__botones m-2 p-1" href="./index.html">Inicio</a>
-                    <a class="nav-link color__botones m-2 p-1" href="#">Farmacia</a>
-                    <a class="nav-link color__botones m-2 p-1" href="./juguetes.html">Jugueteria</a>
-                    <a class="nav-link color__botones m-2 p-1" href="./contacto.html">Contacto</a>
+                    <a class="nav-link color__botones p-1" href="./index.html"><p class="nav__texto">Inicio</p></a>
+                    <a class="nav-link color__botones p-1" href="#"><p class="nav__texto">Farmacia</p></a>
+                    <a class="nav-link color__botones p-1" href="./juguetes.html"><p class="nav__texto">Jugueteria</p></a>
+                    <a class="nav-link color__botones p-1" href="./contacto.html"><p class="nav__texto">Contacto</p></a>
                 </div>
                 <button class="navbar-toggler position-sticky" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -57,12 +57,12 @@
         </nav>
     </header>
     <main id="app" class="main__juegueteria">
-        <section class="encabezado__tiendas">
-            <img src="./assets/imagenes/favico.png" alt="" srcset="" class="imagen__tienda__encabezado">
-            <h1 class="titulo_tiendas" id="titulo">PATITAS FELICES | FARMACIA</h1>
-        </section>
-        <section class="contenedor__check__busqueda">
-            <form class="form d-flex flex-wrap justify-content-around align-items-center m-5">
+        <section  class="contenedor__check__busqueda">
+            <div class="encabezado__tiendas">
+                <img src="./assets/imagenes/favico.png" alt="" srcset="" class="imagen__tienda__encabezado">
+                <h1 class="titulo_tiendas" id="titulo">PATITAS FELICES | FARMACIA</h1>
+            </div>
+            <form class="form d-flex flex-wrap justify-content-around align-items-center ">
                 <div class="categ cards d-flex flex-wrap justify-content-around" id="cat">
                     <div class="check-selects" >
                         <label class="check_sep m-3" v-if="categorias" v-for="cate of categoriasOrdenadasMenorAMayor">
@@ -76,6 +76,7 @@
                 </div>
             </form>
         </section>
+
         <div  id="card_home" class="cards d-flex flex-wrap justify-content-center" >
             <div  id="card_home" class="cards d-flex flex-wrap justify-content-center" >
                 <div v-if="tarjetasFiltradas" class="card col-3 m-3" style="width: 18rem;" v-for="tarjeta of tarjetasFiltradas">
