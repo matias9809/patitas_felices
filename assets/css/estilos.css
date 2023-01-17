@@ -208,6 +208,11 @@ footer{
 }
 
 /* ---- C A R D S ---- */
+
+#card_home{
+    margin-top: -.5rem;
+    margin-bottom: 1rem;
+}
 .card{
     box-shadow: 10px 10px 7px -5px rgba(0,0,0,0.27) !important;
     height: 55vh !important;
