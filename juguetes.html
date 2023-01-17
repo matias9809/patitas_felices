@@ -86,7 +86,9 @@
                         <p class="card-text">{{tarjeta.descripcion.slice(0,100)}}...</p>
                         <div class="tarjeta__precio__disponibles__contenedor">
                             <p class="card-text"><b>Precio: {{tarjeta.precio}}</b></p>
-                            <p class="card-text"><b>Disponibles: {{tarjeta.disponibles}}</b></p>
+                            <p v-if="tarjeta.disponibles >= 5" class="card-text">Disponibles: {{tarjeta.disponibles}}</p>
+                            <p v-else-if="tarjeta.disponibles < 5 && tarjeta.disponibles > 0" class="card-text modal__sinunidades">Ultimas unidades!</p>
+                            <p v-else class="card-text modal__sinunidades">No hay stock</p>
                         </div>
                         <div class="tarjeta__botones__contenedor">
                             <button type="button" class="btn btn-primary boton__tarjeta boton__tarjeta-izquierdo"
@@ -116,6 +118,9 @@
                         <div class="info__modal__contenedor__texto">
                             <p class="info__modal__ttl">{{informacionDeTarjeta.producto}}</p>
                             <p class="info__modal__p">{{informacionDeTarjeta.descripcion}}</p>
+                            <p v-if="informacionDeTarjeta.disponibles >= 5" class="info__modal__p">Cantidad disponible: <b>{{informacionDeTarjeta.disponibles}}</b></p>
+                            <p v-else-if="informacionDeTarjeta.disponibles < 5 && informacionDeTarjeta.disponibles > 0" class="info__modal__p modal__sinunidades"><b>Ultimas unidades!</b></p>
+                            <p v-else class="info__modal__p modal__sinunidades"><b>No hay stock</b></p>
                             <p class="info__modal__precio">Precio: ${{informacionDeTarjeta.precio}}</p>
                         </div>
                     </div>

@@ -182,6 +182,10 @@ footer{
 .info__modal__contenedor__texto{
     margin-left: 2rem;
 }
+
+.modal__sinunidades{
+    color: red;
+}
 /* --- T I E N D A S --- */
 .encabezado__tiendas{
     display: flex;
