@@ -11,10 +11,28 @@
     background-size: cover;
 }
 
+.body__juguetes{
+    background-image: url("../imagenes/fondojuguetes.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.body__farmacia{
+    background-image: url("../imagenes/fondofarmacia.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.body__contacto{
+    background-image: url("../imagenes/fondocontacto.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
 /* ---- N A V B A R ---- */
 
 .color__navegador{
-    background-color:rgb(255, 132, 130, .6);
+    background-color:rgb(255, 132, 130, .6) !important;
     border-bottom: 2px solid #ffffff ;
 }
 .color__carrito{
@@ -86,20 +104,6 @@ footer{
     height: 12vh;
     border-top: 3px solid white;
 } 
-
-/* ---- F A R M A C I A ---- */
-
-.main__juegueteria{
-    background-image: url("../imagenes/fondojuguetes.jpg");
-    background-attachment: fixed;
-    background-size: cover;
-}
-
-.main__farmacia{
-    background-image: url("../imagenes/fondofarmacia.jpg");
-    background-attachment: fixed;
-    background-size: cover;
-}
 
 /* ---- M O D A L ---- */
 
@@ -223,34 +227,17 @@ footer{
 /* C O N T A C T */
 
 html,
-body,
-#app {
+body{
 
     width: 100%;
     height: 100%;
 
 }
 
-.background__image {
-
-    background-image: url('../imagenes/fondoinicio.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
-}
-
-.img__contacto {
-
-    position: relative;
-    top: 100px;
-
-}
-
 .loader__content {
     justify-self: center;
     width: 290px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -260,10 +247,11 @@ body,
 
 .contenedor__form {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    width: 800px;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    row-gap: 20px;
     column-gap: 10px;
-    min-height: 600px;
+    width: 800px;
+    max-width: 90vw;
     position: relative;
     background-color: white;
     padding: 10px;
@@ -275,7 +263,6 @@ body,
 
 
 .input {
-
     width: 100%;
     max-width: 90vw;
     padding: 5px;
@@ -458,23 +445,8 @@ body,
 
     .img__contacto {
 
-        position: absolute;
-        z-index: 10;
-        left: 50%;
-        top: 35%;
-        transform: translate(-50%, -50%)
+       display: none;
     }
-}
-
-@media (max-width: 750px) {
-
-
-    .img__contacto {
-
-        display: none;
-
-    }
-
 }
 
 /* FOOTER */

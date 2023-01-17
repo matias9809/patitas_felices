@@ -13,7 +13,7 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <title>Patitas Felices | Jugueteria</title>
 </head>
-<body>
+<body class="body__juguetes">
     <header>
         <nav class="navbar  color__navegador d-flex flex-wrap">
             <div class="container-fluid">
@@ -59,7 +59,7 @@
     </header>
     <main id="app" class="main__juegueteria">
         <section>
-            <h1 class="text-center" id="titulo">jugueteria</h1>
+            <h1 class="text-center" id="titulo">juguetes</h1>
         </section>
         <form class="form d-flex flex-wrap justify-content-between m-5">
             <div class="categ cards d-flex flex-wrap justify-content-between" id="cat">
@@ -77,10 +77,16 @@
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </div>
         </form>
+<<<<<<< HEAD
         <div class="cards d-flex flex-wrap justify-content-center">
             <div id="card_home" class="cards d-flex flex-wrap justify-content-center">
                 <div v-if="tarjetasFiltradasJuguetes" class="card col-3 m-3" style="width: 18rem;"
                     v-for="tarjeta of tarjetasFiltradasJuguetes">
+=======
+        <div  id="card_home" class="cards d-flex flex-wrap justify-content-center" >
+            <div  id="card_home" class="cards d-flex flex-wrap justify-content-center" >
+                <div v-if="tarjetasFiltradas" class="card col-3 m-3" style="width: 18rem;" v-for="tarjeta of tarjetasFiltradas">
+>>>>>>> e950e382e11b67e75a1b05cb2449b825d7a4394b
                     <div class="tarjeta__imagen__contenedor">
                         <img v-bind:src="tarjeta.imagen" class="card-img-top tarjeta__imagen" :alt="tarjeta.producto">
                     </div>
