@@ -234,21 +234,10 @@ body{
 
 }
 
-<<<<<<< HEAD
-.background__image {
-
-    background-image: url('../imagenes/fondoinicio.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: fit-content;
-=======
 .img__contacto {
 
     position: relative;
     top: 100px;
->>>>>>> 9fcca298c59c522ca25c6e83597e3e35935abc3c
 
 }
 
