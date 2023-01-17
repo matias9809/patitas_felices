@@ -177,7 +177,7 @@ footer{
 }
 
 .modal__sinunidades{
-    color: red;
+    color: red !important;
 }
 /* --- T I E N D A S --- */
 .encabezado__tiendas{
@@ -543,7 +543,7 @@ ul{
 	background-color: #91be95;
     padding: 60px 0;
     width: 100%;
-    min-height: 20vh;
+    min-height: 10vh;
     bottom: 0;
 }
 .footer__columna{
