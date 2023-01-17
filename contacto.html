@@ -91,8 +91,6 @@
                                         data.apellido}}</strong> recibimos tu mensaje
                                     nos pondremos en contacto en breve</p>
                             </template>
-                            <button class="boton__otro__mensaje boton__hover" @click="enviando = null"
-                                :class="{ invisible: enviando !== false}">Enviar otra consulta</button>
                         </div>
                         <form action="" class="container m-0 d-flex flex-column gap-1 pb-2" @submit.prevent
                             v-if="enviando === null">
