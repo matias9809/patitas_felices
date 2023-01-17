@@ -8,6 +8,7 @@ createApp( {
             informacionDeTarjeta:{},
             chequeados:[],
             valorDeBusqueda:"",
+            todos:[],
         }
     },
     created(){
@@ -15,15 +16,18 @@ createApp( {
             .then( respuesta => respuesta.json() )
             .then( datos => {
                 this.todosLosProductos=[...datos];
-                this.todosLosProductos.forEach(producto=>producto.ventas=0) 
+                
+                this.todosLosProductos.forEach(producto=>producto.ventas=0);
+
                 if(localStorage.getItem("nuestrosProductos"))
-                this.todosLosProductos = JSON.parse(localStorage.getItem("nuestrosProductos"))
+                this.todosLosProductos = JSON.parse(localStorage.getItem("nuestrosProductos"));
                 let nombrePagina=location.pathname;//ve pagina nombre
                 if (nombrePagina.includes("farmacia"))
                 this.productos=this.todosLosProductos.filter(producto=>producto.categoria==="farmacia");
                 else
                 this.productos=this.todosLosProductos.filter(producto=>producto.categoria==="jugueteria");
-                console.log(this.compras)
+
+                this.compras=this.todosLosProductos.filter(e=>e.ventas>0);
             } )
             .catch()
     },
@@ -61,7 +65,10 @@ createApp( {
         },
         removerCarrito:function(){
         localStorage.removeItem("nuestrosProductos");
+        this.productos=this.todos;
+        this.compras=[];
+        console.log(this.productos)
         },
-    }
+    },
     }).mount("#app")
 
