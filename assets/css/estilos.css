@@ -557,7 +557,6 @@ body{
 	max-width: 1170px;
 	margin:auto;
 }
-
 .roww{
 	display: flex;
 	flex-wrap: wrap;
@@ -573,10 +572,10 @@ ul{
     bottom: 0;
 }
 .footer__columna{
-   width: 25%;
-   padding: 0 15px;
-   height: 15vh;
-   margin-top: -7vh;
+    width: 25%;
+    padding: 0 15px;
+    height: 15vh;
+    margin-top: -7vh;
 }
 .footer__columna h4{
 	font-size: 20px;
@@ -639,15 +638,15 @@ ul{
     
 }
 .footer{
-    min-height: 20vh;
+    min-height: 150px;
 }
 }
 @media(max-width: 574px){
   .footer__columna{
     width: 100%;
-    margin-bottom: 16vh;
+/*     margin-bottom: 16vh; */
   }
     .footer{
-        min-height: 20vh;
+        min-height: 50px;
     }
 }
