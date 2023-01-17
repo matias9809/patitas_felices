@@ -11,10 +11,28 @@
     background-size: cover;
 }
 
+.body__juguetes{
+    background-image: url("../imagenes/fondojuguetes.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.body__farmacia{
+    background-image: url("../imagenes/fondofarmacia.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.body__contacto{
+    background-image: url("../imagenes/fondocontacto.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
 /* ---- N A V B A R ---- */
 
 .color__navegador{
-    background-color:rgb(255, 132, 130, .6);
+    background-color:rgb(255, 132, 130, .6) !important;
     border-bottom: 2px solid #ffffff ;
 }
 .color__carrito{
@@ -86,20 +104,6 @@ footer{
     height: 12vh;
     border-top: 3px solid white;
 } 
-
-/* ---- F A R M A C I A ---- */
-
-.main__juegueteria{
-    background-image: url("../imagenes/fondojuguetes.jpg");
-    background-attachment: fixed;
-    background-size: cover;
-}
-
-.main__farmacia{
-    background-image: url("../imagenes/fondofarmacia.jpg");
-    background-attachment: fixed;
-    background-size: cover;
-}
 
 /* ---- M O D A L ---- */
 
@@ -230,6 +234,7 @@ body{
 
 }
 
+<<<<<<< HEAD
 .background__image {
 
     background-image: url('../imagenes/fondoinicio.jpg');
@@ -238,6 +243,12 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     height: fit-content;
+=======
+.img__contacto {
+
+    position: relative;
+    top: 100px;
+>>>>>>> 9fcca298c59c522ca25c6e83597e3e35935abc3c
 
 }
 
