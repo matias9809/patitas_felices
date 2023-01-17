@@ -249,7 +249,15 @@ body{
 
     height: 100%;
     width: auto;
-    max-width: 45vw;
+    max-width: 35vw;
+    align-self: end;
+
+}
+
+.container__form__title_contact{
+
+    width: 100%;
+
 
 }
 
@@ -258,17 +266,20 @@ body{
     grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
     row-gap: 20px;
     column-gap: 10px;
-    width: 800px;
-    max-width: 90vw;
+    width: fit-content;
+    max-width: 800px;
     position: relative;
     background-color: white;
     padding: 10px;
-    height: fit-content;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
     z-index: 100;
-
 }
 
+.contenedor__form > form {
+
+    max-width: 400px;
+
+}
 
 .input {
     width: 100%;
@@ -335,6 +346,13 @@ body{
     max-width: 90vw;
     padding: 5px;
     text-align: center;
+
+}
+
+.contenedor__encontrarnos{
+
+    width: 400px;
+    max-width: 80vw;
 
 }
 
@@ -455,6 +473,30 @@ body{
 
        display: none;
     }
+
+    .contenedor__form{
+
+        width: 100%;
+
+    }
+
+    .contenedor__form > form {
+
+        max-width: 85vw;
+
+    }
+
+}
+
+@media (max-width: 820px){
+
+    .contenedor__form{
+
+        max-width: 90vw;
+
+    }
+
+
 }
 
 /* FOOTER */
