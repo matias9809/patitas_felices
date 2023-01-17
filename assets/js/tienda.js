@@ -109,17 +109,7 @@ createApp( {
         },
         verMas: function(id){
             this.tarjetas.forEach(tarjeta => tarjeta._id === id ? this.informacionDeTarjeta = tarjeta : `No hay informacion acerca del producto` );
-        },
-        generarIconoAleatorio(){
-
-            let numeroAleatorio = Math.floor(Math.random() * 100);
-
-            if(numeroAleatorio % 2 === 0) return "./assets/icons/loadingDog.json"
-
-            else return "./assets/icons/loadingCat.json"
-
-        },
-     
+        }
     },
     computed: {
 
