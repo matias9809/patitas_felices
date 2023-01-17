@@ -192,11 +192,13 @@ footer{
 /*--- C H E C K --- */
 
 .contenedor__check__busqueda{
-    margin-top: -3rem
+    margin-top: -3rem;
+    background-color: #91be95;
 }
 
 .check_sep{
     font-size: 1.2rem;
+    color: white;
 }
 
 .form-control{

@@ -10,7 +10,9 @@ createApp( {
             tarjetasFiltradas : [],
             carrito:[],
             aux:[],
-            informacionDeTarjeta: ""
+            informacionDeTarjeta: "",
+            categoriasFiltradas: [],
+            categoriasOrdenadasMenorAMayor: []
         }
     },
     created(){
@@ -32,7 +34,8 @@ createApp( {
                         this.tarjetas= datos.filter(e=>e.categoria=="jugueteria")
                         this.categorias=datos.filter(e=>e.categoria=="jugueteria")
                         this.tarjetasFiltradas = datos.filter(e=>e.categoria=="jugueteria")
-                        this.categorias = [ ...new Set( this.categorias.map( tar => tar.precio ) ) ]
+                        this.categoriasFiltradas = [ ...new Set( this.categorias.map( tar => tar.precio ) ) ]
+                        this.categoriasOrdenadasMenorAMayor = this.categoriasFiltradas.sort((a, b) => a -b)
                         break
                     }
                     case "PATITAS FELICES | FARMACIA":{
@@ -47,7 +50,8 @@ createApp( {
                         this.tarjetas= datos.filter(e=>e.categoria=="farmacia")
                         this.categorias=datos.filter(e=>e.categoria=="farmacia")
                         this.tarjetasFiltradas = datos.filter(e=>e.categoria=="farmacia")
-                        this.categorias = [ ...new Set( this.categorias.map( tar => tar.precio ) ) ]
+                        this.categoriasFiltradas = [ ...new Set( this.categorias.map( tar => tar.precio ) ) ]
+                        this.categoriasOrdenadasMenorAMayor = this.categoriasFiltradas.sort((a, b) => a -b)
                         break
                     }
                 }

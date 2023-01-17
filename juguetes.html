@@ -60,7 +60,7 @@
             <form class="form d-flex flex-wrap justify-content-around align-items-center m-5">
                 <div class="categ cards d-flex flex-wrap justify-content-around" id="cat">
                     <div class="check-selects" >
-                        <label class="check_sep m-3" v-if="categorias" v-for="cate of categorias">
+                        <label class="check_sep m-3" v-if="categorias" v-for="cate of categoriasOrdenadasMenorAMayor">
                         <input type="checkbox" v-on:change="filtroCruzado" class="checks-deks" v-model="chequeados" :value="cate" name="cate" :id="cate">
                        ${{cate}}
                         </label>
@@ -122,7 +122,7 @@
     </main>
     <footer class="footer">
         <div class="container">
-            <div class="row">
+            <div class="d-flex">
                 <div class="footer__columna">
                     <h4>company</h4>
                     <ul>
