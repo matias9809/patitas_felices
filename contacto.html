@@ -66,8 +66,7 @@
                     class="d-flex flex-column align-items-center justify-content-center container__form__title_contact">
                     <h1 class="p-0 m-0 mt-2 d-flex align-items-center p-4">
                         <img src="./assets/imagenes/favico.png" />
-                        <span>PATITAS FELICES</span>
-                        |CONTACTO
+                        <span class="pe-2">PATITAS FELICES</span>|<span class="px-2">FARMACIA</span>
                     </h1>
                     <div class="contenedor__form bg-white rounded mb-2">
                         <div v-if="enviando !== null" class="loader__content">
@@ -91,8 +90,6 @@
                                         data.apellido}}</strong> recibimos tu mensaje
                                     nos pondremos en contacto en breve</p>
                             </template>
-                            <button class="boton__otro__mensaje boton__hover" @click="enviando = null"
-                                :class="{ invisible: enviando !== false}">Enviar otra consulta</button>
                         </div>
                         <form action="" class="container m-0 d-flex flex-column gap-1 pb-2" @submit.prevent
                             v-if="enviando === null">

@@ -40,9 +40,27 @@ createApp({
 
                 setTimeout(() => this.enviando = false, 2000)
 
+                setTimeout(() => {
+
+                    this.resetearDatos()
+                    this.enviando = null
+    
+                }, 6000)
+
             }
 
         },
+
+        resetearDatos(){
+
+            for(let [key, value] of Object.entries(this.data)){
+
+                this.data[key] = ""
+
+            }
+
+        },
+
         evaluarInputs(isenviando){
 
             for(let [key] of Object.entries(this.errores)){

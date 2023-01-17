@@ -20,8 +20,8 @@ createApp( {
         fetch(`https://mindhub-xj03.onrender.com/api/petshop`)
             .then( respuesta => respuesta.json() )
             .then( datos => {
-                switch(document.getElementById("titulo").innerHTML){
-                    case "PATITAS FELICES | JUGUETES":{
+                switch(document.title.split("|")[1].trim()){
+                    case "Jugueteria":{
                         this.disponibles =[...new Set( datos.map(e=>{
                             if(e.categoria=="jugueteria"){
                                 return{
@@ -39,7 +39,7 @@ createApp( {
                         this.categoriasOrdenadasMenorAMayor = this.categoriasFiltradas.sort((a, b) => a -b)
                         break
                     }
-                    case "PATITAS FELICES | FARMACIA":{
+                    case "Farmacia":{
                         this.disponibles =[...new Set( datos.map(e=>{
                             if(e.categoria=="farmacia"){
                         return{
@@ -109,17 +109,7 @@ createApp( {
         },
         verMas: function(id){
             this.tarjetas.forEach(tarjeta => tarjeta._id === id ? this.informacionDeTarjeta = tarjeta : `No hay informacion acerca del producto` );
-        },
-        generarIconoAleatorio(){
-
-            let numeroAleatorio = Math.floor(Math.random() * 100);
-
-            if(numeroAleatorio % 2 === 0) return "./assets/icons/loadingDog.json"
-
-            else return "./assets/icons/loadingCat.json"
-
-        },
-     
+        }
     },
     computed: {
 
