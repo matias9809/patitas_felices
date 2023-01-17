@@ -308,24 +308,17 @@ footer{
 /* C O N T A C T */
 
 html,
-body,
-#app {
+body{
 
     width: 100%;
     height: 100%;
 
 }
 
-.img__contacto {
-
-    position: relative;
-    top: 100px;
-
-}
-
 .loader__content {
     justify-self: center;
     width: 290px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -335,10 +328,11 @@ body,
 
 .contenedor__form {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    width: 800px;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    row-gap: 20px;
     column-gap: 10px;
-    min-height: 600px;
+    width: 800px;
+    max-width: 90vw;
     position: relative;
     background-color: white;
     padding: 10px;
@@ -350,7 +344,6 @@ body,
 
 
 .input {
-
     width: 100%;
     max-width: 90vw;
     padding: 5px;
@@ -533,23 +526,8 @@ body,
 
     .img__contacto {
 
-        position: absolute;
-        z-index: 10;
-        left: 50%;
-        top: 35%;
-        transform: translate(-50%, -50%)
+       display: none;
     }
-}
-
-@media (max-width: 750px) {
-
-
-    .img__contacto {
-
-        display: none;
-
-    }
-
 }
 
 /* FOOTER */
