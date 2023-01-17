@@ -58,12 +58,10 @@
     </header>
     <div id="app">
         {{reEvaluarInputs}}
-        <section class="d-flex align-items-center justify-content-center" style="min-height: 80vh; padding: 20px;">
+        <section class="d-flex align-items-center justify-content-between pt-2" style="min-height: 80vh">
 
-            <article class="d-flex justify-content-center">
-                <img src="./assets/imagenes/perrocontacto.png" alt="perro-con-gabardina" width="300" height="550"
-                    class="img__contacto">
-                <div class="d-flex flex-column">
+                <img src="./assets/imagenes/perrocontacto.png" alt="perro-con-gabardina" class="img__contacto">
+                <div class="d-flex flex-column align-items-center justify-content-center">
                     <h1 class="p-0 m-0 mt-2 d-flex align-items-center">
                         <img src="./assets/imagenes/favico.png" />
                         <span>PATITAS FELICES</span>
@@ -95,7 +93,7 @@
                                 :class="{ invisible: enviando !== false}">Enviar otra consulta</button>
                         </div>
 
-                        <form action="" class="container m-0 d-flex flex-column gap-1" @submit.prevent
+                        <form action="" class="container m-0 d-flex flex-column gap-1 pb-2" @submit.prevent
                             v-if="enviando === null" style="max-width: 800px;">
                             <h3 class="text-center">Escribinos</h3>
                             <div class="d-flex flex-column p-0">
@@ -147,7 +145,7 @@
                                     {{errores.mensaje}}
                                 </p>
                             </div>
-                            <button class="boton__contact mt-1 boton__hover" type="submit"
+                            <button class="boton__contact mt-2 boton__hover" type="submit"
                                 @click="submit">Enviar</button>
                         </form>
                         <div class="d-flex flex-column  align-items-center">
@@ -161,7 +159,7 @@
                     </div>
 
                 </div>
-            </div>
+            
 
         </section>
     </div>

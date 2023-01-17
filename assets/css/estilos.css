@@ -245,6 +245,14 @@ body{
 
 }
 
+.img__contacto {
+
+    height: 100%;
+    width: auto;
+    max-width: 45vw;
+
+}
+
 .contenedor__form {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
