@@ -352,9 +352,12 @@ body{
 .contenedor__encontrarnos{
 
     width: 400px;
-    max-width: 80vw;
+    max-width: 85vw;
+    justify-self: center;
 
 }
+
+
 
 .invisible {
     visibility: hidden;
@@ -496,6 +499,15 @@ body{
 
     }
 
+}
+
+@media (max-width: 370px){
+
+    .contenedor__encontrarnos{
+
+        justify-self: auto;
+
+    }
 
 }
 
