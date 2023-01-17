@@ -43,8 +43,9 @@
     margin: 0 !important;
     padding: 0 !important;
 }
+
 .color__navegador{
-    background-color:rgb(255, 132, 130, .4) !important;
+    background-color:rgba(173, 94, 92, 0.8) !important;
     border-bottom: 2px solid #ffffff ;
 }
 .color__carrito{
@@ -73,7 +74,7 @@
 }
 
 .texto__navbar{
-    color: black;
+    color: rgb(255, 255, 255);
     font-size: 1.3rem !important;
 }
 .texto__navbar:hover{
@@ -90,6 +91,7 @@
 }
 
 .nav__texto{
+    color: white !important;
     font-size: 1.3rem;
     padding: .7rem .5rem 0 .5rem;
 }
@@ -137,6 +139,22 @@
 .p__inicio{
     font-size: 1.8rem;
     text-align: right;
+}
+
+.encabezado__nav__inicio{
+    display: flex;
+    align-items: center;
+}
+
+.titulo__nav{
+    font-size: 1.4rem;
+    color: white;
+    margin-top: 1rem;
+}
+
+.imagen__nav__encabezado{
+    width: 1.8vw;
+    margin-right: .5rem;
 }
 
 /* --- C A R R U S E L --- */
@@ -244,7 +262,7 @@ footer{
 .card{
     box-shadow: 10px 10px 7px -5px rgba(0,0,0,0.27) !important;
     transition: .5s;
-    height: 55vh;
+    min-height: 55vh;
 }
 
 .card:hover{
@@ -258,7 +276,7 @@ footer{
     background-color: #f8d8a5;
     border-radius: .3rem .3rem 1rem 1rem;
     height: 14vh;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
     transition: 1s;
 }
 
@@ -271,7 +289,7 @@ footer{
 .tarjeta__imagen{
     margin-top: 4rem;
     border-radius: 50% !important;
-    height: 120%;
+    height: 140%;
     width:60% !important;
     object-fit: cover !important;
     border: 5px solid white;
