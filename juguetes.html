@@ -62,14 +62,20 @@
         <section class="encabezado__tiendas">
             <img src="./assets/imagenes/favico.png" alt="" srcset="" class="imagen__tienda__encabezado">
             <h1 class="titulo_tiendas d-flex align-items-center justify-content-center">
-                <span class="pe-2">PATITAS FELICES</span>|<span class="px-2">FARMACIA</span>
+                <span class="pe-2">PATITAS FELICES</span>|<span class="px-2">JUGUETERIA</span>
             </h1>
         </section>
         <template v-if="estaCargando">
             <div class="d-flex flex-column justify-content-start align-items-center w-100 min-vh-100">
-                <lottie-player src="./assets/icons/loadingCat.json" background="transparent" speed="1"
-                    style="width: 200px; height: 200px;" autoplay repeat></lottie-player>
-                <strong style="color: #c88e86">Cargando...</strong>
+                <lottie-player 
+                    src="./assets/icons/loadingCat.json"
+                    background="transparent" 
+                    speed="1"
+                    style="width: 200px; height: 200px;" 
+                    autoplay 
+                    repeat>
+                </lottie-player>
+                <strong style="color: rgb(172, 101, 9)">Cargando...</strong>
             </div>
         </template>
         <template v-if="tarjetas.length && !estaCargando">
