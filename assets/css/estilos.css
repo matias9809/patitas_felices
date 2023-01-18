@@ -819,7 +819,22 @@ ul{
     .p__inicio{
         font-size: 4vw;
     }
+    
 }
+
+.img__responsive__tienda{
+
+    display: flex;
+    justify-content: center;
+
+}
+
+.img__responsive__tienda  img{
+
+    width: 200px;
+
+}
+
 @media(max-width: 574px){
     .footer__columna{
         width: 50%;
