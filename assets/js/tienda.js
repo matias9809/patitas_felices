@@ -13,7 +13,25 @@ createApp( {
             todos:[],
             estaCargando: true,
             productosFiltrados : [],
-            perroOGtao: ""
+            perroOGtao: "",
+            data: {
+                nombre: "",
+                apellido: "",
+                telefono: "",
+                mascota: "",
+                otraMascota: "",
+                mensaje: ""
+            },
+            errores: {
+                nombre: "",
+                apellido: "",
+                telefono: "",
+                mascota: "",
+                otraMascota: "",
+                mensaje: "",
+
+            },
+            enviando: null
         }
     },
     created(){
@@ -88,6 +106,63 @@ createApp( {
         // this.compras=[];
         // console.log(this.productos)
         // },
+        submit() {
+
+            this.evaluarInputs(true);
+
+            if(!Object.values(this.errores).some(e => e !== "") || 
+                Object.entries(this.errores).filter(e => e[1] !== "").length === 1 && 
+                this.errores.otraMascota &&
+                this.data.mascota !== "otro" ){
+
+                this.enviando = true;
+
+                setTimeout(() => this.enviando = false, 2000)
+
+                setTimeout(() => {
+
+                    this.resetearDatos()
+                    this.enviando = null
+    
+                }, 6000)
+
+            }
+
+        },
+
+        resetearDatos(){
+
+            for(let [key, value] of Object.entries(this.data)){
+
+                this.data[key] = ""
+
+            }
+
+        },
+
+        evaluarInputs(isenviando){
+
+            for(let [key] of Object.entries(this.errores)){
+
+                if (isenviando && !this.data[key]) this.errores[key] = "*campo obligatorio";
+
+                else if(this.data[key]) this.errores[key] = "";
+
+                if(this.data[key]){
+
+                    if(!/^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/g.test(this.data[key]) && 
+                        (   key === "nombre" || 
+                            key === "apellido" || 
+                            key === "OtraMascota")) this.errores[key] = "*sólo introducir letras";
+    
+                    else if(key === "telefono" && 
+                            !/^[0-9]+$/g.test(this.data[key])) this.errores.telefono = "*sólo introducir números";
+
+                }
+
+            }
+
+        }
     },
     computed: {
 
@@ -95,7 +170,13 @@ createApp( {
 
             if(this.productosFiltrados.length) setTimeout(() => this.estaCargando = false, 2000)
         
+        },
+        reEvaluarInputs() {
+
+            this.evaluarInputs(false);
+
         }
+
 
     } 
     }).mount("#app")
