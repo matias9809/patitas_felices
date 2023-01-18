@@ -106,7 +106,7 @@ createApp( {
                 producto.ventas++;}
             });
             this.compras=this.todosLosProductos.filter(e=>e.ventas>0);
-            console.log(this.compras)
+            console.log('agregar compra: ', this.compras)
             localStorage.setItem("nuestrosProductos",JSON.stringify(this.todosLosProductos));
         },
         eliminar: function(objeto){
@@ -116,6 +116,7 @@ createApp( {
                 producto.ventas--;}
             });
             this.compras=this.todosLosProductos.filter(e=>e.ventas>0);
+            console.log('eliminar compra: ', this.compras)
             localStorage.setItem("nuestrosProductos",JSON.stringify(this.todosLosProductos));
         },
         verMas: function(id){
