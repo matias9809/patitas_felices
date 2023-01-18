@@ -166,7 +166,7 @@ createApp( {
 
             this.agregandoAlCarrito = true;
 
-            setTimeout(() => this.agregandoAlCarrito = false, 2000)
+            setTimeout(() => this.agregandoAlCarrito = false, 1000)
 
         },
         ComprarCarrito:function(){
@@ -186,7 +186,7 @@ createApp( {
 
             this.ComprarCarrito();
             this.yaCompraste = true;
-            setTimeout(() => this.yaCompraste = false, 2000)
+            setTimeout(() => this.yaCompraste = false, 1000)
 
         },
         submit() {
@@ -200,7 +200,7 @@ createApp( {
 
                 this.enviando = true;
 
-                setTimeout(() => this.enviando = false, 2000)
+                setTimeout(() => this.enviando = false, 1000)
 
                 setTimeout(() => {
 
