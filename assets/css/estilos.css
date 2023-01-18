@@ -289,7 +289,6 @@ footer{
 .card{
     box-shadow: 10px 10px 7px -5px rgba(0,0,0,0.27) !important;
     transition: .5s;
-    min-height: 58vh;
 }
 
 .card:hover{
@@ -340,8 +339,6 @@ footer{
 }
 
 .tarjeta__botones__contenedor{
-    position: absolute;
-    bottom: 0;
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
@@ -774,10 +771,6 @@ ul{
         height: 13vh !important;
     }
 
-    .card{
-        min-height: 44vh !important;
-    }
-
     .w-100{
         height: 13vh !important;
     } 
@@ -798,9 +791,6 @@ ul{
         width: 3.3vw;
     }
 
-    .card{
-        min-height: 44vh !important;
-    }
     .contenedor__texto__inicio{
         width: 95%;
         margin-left: 2vh;
@@ -826,9 +816,6 @@ ul{
         margin: 0;
     }
 
-    .card{
-        min-height: 43vh !important;
-    }
     .footer{
         max-height: 60%;
         height: 47%;
