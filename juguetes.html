@@ -182,7 +182,7 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary  boton__tarjeta"
                                     data-bs-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-primary  boton__tarjeta"
+                                <button type="button" class="btn btn-primary  boton__tarjeta" v-if="informacionDeTarjeta.disponibles"
                                     @click="agregar(informacionDeTarjeta)">
                                     Agregar al carrito</button>
                             </div>
