@@ -12,6 +12,7 @@ createApp( {
             switchCheck: "",
             todos:[],
             estaCargando: true,
+            yaCompraste: false,
             productosFiltrados : [],
             filtradoPorMascota: [],
             perro: [],
@@ -166,6 +167,26 @@ createApp( {
             this.agregandoAlCarrito = true;
 
             setTimeout(() => this.agregandoAlCarrito = false, 2000)
+
+        },
+        ComprarCarrito:function(){
+            this.todosLosProductos.forEach(e=>{
+                this.disponibles_iniciales.forEach(f=>{
+                    if(e._id==f._id){
+                        e.ventas=f.ventas
+                    }
+                })
+            })
+            console.log("disponibles: ", this.todosLosProductos)
+            localStorage.removeItem("nuestrosProductos")
+            localStorage.setItem("nuestrosProductos", JSON.stringify(this.todosLosProductos))
+            this.compras=this.todosLosProductos.filter(e=>e.ventas>0);
+        },
+        comprando(){
+
+            this.ComprarCarrito();
+            this.yaCompraste = true;
+            setTimeout(() => this.yaCompraste = false, 2000)
 
         },
         submit() {

@@ -15,7 +15,7 @@
 
 <body class="body__farmacia">
     <div id="app">
-        <div v-if="agregandoAlCarrito" style="z-index: 10" class="position-fixed color-alert top-0 end-0 bg-danger mt-1 fs-5 p-2 rounded shadow">
+        <div v-if="agregandoAlCarrito" style="z-index: 10" class="position-fixed color-alert top-0 end-0 mt-1 fs-5 p-2 rounded shadow">
             Agregado al carrito
         </div>
         <header class="d-flex justify-content-between color__navegador" >
@@ -30,7 +30,6 @@
                         <a class="nav-link color__botones p-1" href="./juguetes.html"><p class="nav__texto">Jugueteria</p></a>
                         <a class="nav-link color__botones p-1" href="./contacto.html"><p class="nav__texto">Contacto</p></a>
                     </div>
-                    
                 </div>
             </nav>
                 <button class="navbar-toggler position-sticky me-3 m-2" type="button" data-bs-toggle="offcanvas"
@@ -39,6 +38,9 @@
                 </button>
                 <div class="offcanvas offcanvas-end color__carrito" tabindex="-1" id="offcanvasNavbar"
                     aria-labelledby="offcanvasNavbarLabel">
+                    <div v-if="yaCompraste" style="z-index: 1000" class="position-fixed color-alert top-0 end-50 mt-1 fs-5 p-2 rounded shadow">
+                        Gracias por su compra
+                    </div>
                     <div class="offcanvas-header ">
                         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Su Carrito de Compras :</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
@@ -76,7 +78,7 @@
                             </div>
                         </div>
                         <div class="d-flex mt-3" role="search">
-                            <button class="color__boton__compra m-2 p-1" type="submit">Comprar Carrito</button>
+                            <button class="color__boton__compra m-2 p-1" type="submit" @Click="comprando">Comprar Carrito</button>
                             <button class="color__boton__compra m-2 p-1" type="submit" @Click="removerCarrito">Eliminar Carrito</button>
                         </div>
                     </div>
