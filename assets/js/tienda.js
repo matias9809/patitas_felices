@@ -177,7 +177,6 @@ createApp( {
                     }
                 })
             })
-            console.log("disponibles: ", this.todosLosProductos)
             localStorage.removeItem("nuestrosProductos")
             localStorage.setItem("nuestrosProductos", JSON.stringify(this.todosLosProductos))
             this.compras=this.todosLosProductos.filter(e=>e.ventas>0);
@@ -186,7 +185,7 @@ createApp( {
 
             this.ComprarCarrito();
             this.yaCompraste = true;
-            setTimeout(() => this.yaCompraste = false, 1000)
+            setTimeout(() => this.yaCompraste = false, 2000)
 
         },
         submit() {
