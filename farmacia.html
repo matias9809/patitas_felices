@@ -76,33 +76,32 @@
             <section class="contenedor__check__busqueda">
                 <form class="form d-flex flex-wrap justify-content-around align-items-center m-5">
                     <div class="categ cards d-flex flex-wrap justify-content-around" id="cat">
-                        <div class="check-selects">
-                            <label class="check_sep m-3" v-if="categorias"
-                                v-for="cate of categoriasOrdenadasMenorAMayor">
-                                <input type="checkbox" v-on:change="filtroCruzado" class="checks-deks"
-                                    v-model="chequeados" :value="cate" name="cate" :id="cate">
-                                ${{cate}}
+                        <div class="check-selects" >
+                            <label class="p-3">Rango de precio
+                                <select name="precio" class="p-1" v-on:Click="filtroCruzado" v-model="chequeados">
+                                    <option value="">{{chequeados ?"ninguna":"selecciona una opcion"}}</option>
+                                    <option value="1500">hasta $1500</option>
+                                    <option value="1501">desde 1501 hasta 2000</option>
+                                    <option value="2001">mayor a 2001</option>
+                                </select>
                             </label>
                         </div>
                     </div>
                     <div class="div_b d-flex flex-wrap">
-                        <input id="buscar" class="form-control me-3 " v-on:input="filtroCruzado"
-                            v-model="valorDeBusqueda" type="search" placeholder="Search" aria-label="Search">
+                        <input  id="buscar" class="form-control me-3 " v-on:input="filtroCruzado" v-model="valorDeBusqueda" type="search" placeholder="Search" aria-label="Search">
                     </div>
                 </form>
             </section>
-
-            <div id="card_home" class="cards d-flex flex-wrap justify-content-center">
-                <div id="card_home" class="cards d-flex flex-wrap justify-content-center">
-                    <div v-if="tarjetasFiltradas" class="card col-3 m-3" style="width: 18rem;"
-                        v-for="tarjeta of tarjetasFiltradas">
-                        <div class="tarjeta__imagen__contenedor">
-                            <img v-bind:src="tarjeta.imagen" class="card-img-top tarjeta__imagen"
-                                :alt="tarjeta.producto">
+            
+            <div  id="card_home" class="cards d-flex flex-wrap justify-content-center" >
+                <div  id="card_home" class="cards d-flex flex-wrap justify-content-center" >
+                    <div v-if="tarjetasFiltradas" class="card col-3 m-3" style="width: 18rem;" v-for="tarjeta of tarjetasFiltradas">
+                        <div class="tarjeta__imagen__contenedor d-flex-colum aling-item-center">
+                            <img v-bind:src="tarjeta.imagen" class="card-img-top tarjeta__imagen" :alt="tarjeta.producto">
                         </div>
-                        <div class="card-body">
+                        <div class="card-body d-flex-colum aling-item-center">
                             <h5 class="card-title text-center">{{tarjeta.producto}}</h5>
-                            <p class="card-text">{{tarjeta.descripcion.slice(0,100)}}...</p>
+                            <p class="card-text text-center">{{tarjeta.descripcion.slice(0,100)}}...</p>
                             <div class="tarjeta__precio__disponibles__contenedor">
                                 <p class="card-text"><b>Precio: {{tarjeta.precio}}</b></p>
                                 <p v-if="tarjeta.disponibles >= 5" class="info__modal__p">Disponibles: <b>{{tarjeta.disponibles}}</b></p>
