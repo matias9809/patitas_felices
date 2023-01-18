@@ -15,6 +15,7 @@ createApp( {
             productosFiltrados : [],
             perroOGtao: "",
             disponibles_iniciales:[],
+            agregandoAlCarrito: false,
             data: {
                 nombre: "",
                 apellido: "",
@@ -88,6 +89,8 @@ createApp( {
             }
         },
         agregar: function(objeto){//crear v-if en disponibles y boton agregar colocar mensaje no hay displonibles
+            this.agregadoAlcarrito()
+            
             this.todosLosProductos.find(producto=>{
                 if(producto._id==objeto._id){
                 producto.disponibles--;
@@ -121,6 +124,13 @@ createApp( {
             })
             localStorage.removeItem("nuestrosProductos")
             this.compras=this.todosLosProductos.filter(e=>e.ventas>0);
+        },
+        agregadoAlcarrito(){
+
+            this.agregandoAlCarrito = true;
+
+            setTimeout(() => this.agregandoAlCarrito = false, 2000)
+
         },
         submit() {
 

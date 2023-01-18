@@ -15,6 +15,9 @@
 
 <body class="body__farmacia">
     <div id="app">
+        <div v-if="agregandoAlCarrito" style="z-index: 10" class="position-fixed color-alert top-0 end-0 bg-danger mt-1 fs-5 p-2 rounded shadow">
+            Agregado al carrito
+        </div>
         <header class="d-flex justify-content-between color__navegador" >
             <nav class="navbar navbar-expand-lg">
                 <div class="d-md-flex text-center navbar-expand-lg">

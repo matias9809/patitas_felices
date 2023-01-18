@@ -14,6 +14,9 @@
 </head>
 
 <body class="body__juguetes" id="app">
+    <div v-if="agregandoAlCarrito" style="z-index: 10" class="position-fixed top-0 end-0 color-alert mt-1 fs-5 p-2 m-2 rounded shadow">
+        Agregado al carrito
+    </div>
     <header class="d-flex justify-content-between color__navegador" >
         <nav class="navbar navbar-expand-lg">
             <div class="d-md-flex text-center navbar-expand-lg">
