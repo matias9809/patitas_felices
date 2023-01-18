@@ -119,14 +119,13 @@
                 </section>
 
                 <div id="card_home" class="cards d-flex flex-wrap justify-content-center">
-                    <div id="card_home" class="cards d-flex flex-wrap justify-content-center">
                         <div v-if="productosFiltrados" class="card col-3 m-3" style="width: 18rem;"
                             v-for="tarjeta of productosFiltrados">
                             <div class="tarjeta__imagen__contenedor">
                                 <img v-bind:src="tarjeta.imagen" class="card-img-top tarjeta__imagen"
                                     :alt="tarjeta.producto">
                             </div>
-                            <div class="card-body">
+                            <div class="card-body d-flex flex-column justify-content-between">
                                 <h5 class="card-title text-center">{{tarjeta.producto}}</h5>
                                 <p class="card-text">{{tarjeta.descripcion.slice(0,100)}}...</p>
                                 <div class="tarjeta__precio__disponibles__contenedor">
@@ -152,7 +151,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
                     <div v-show="productosFiltrados.length==0" class="text-center mensaje__error__check">
                         <p>No hay productos con ese nombre.</p>
                     </div>

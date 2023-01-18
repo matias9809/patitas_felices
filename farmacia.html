@@ -119,8 +119,8 @@
                     </form>
                 </section>
 
+
                 <div id="card_home" class="cards d-flex flex-wrap justify-content-center">
-                    <div id="card_home" class="cards d-flex flex-wrap justify-content-center">
                         <div v-if="productosFiltrados" class="card col-3 m-3" style="width: 18rem;"
                             v-for="tarjeta of productosFiltrados">
                             <div class="tarjeta__imagen__contenedor">
@@ -153,7 +153,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    
                     <div v-show="productosFiltrados.length==0" class="text-center mensaje__error__check">
                         <p>No hay productos con ese nombre.</p>
                     </div>
