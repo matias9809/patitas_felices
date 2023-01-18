@@ -62,7 +62,7 @@ createApp( {
     },
     methods: {
         filtroCruzado: function(){
-            let filtradoPorBusqueda = this.productos.filter( eventos => eventos.producto.toLowerCase().includes( this.valorDeBusqueda.toLowerCase()))
+            let filtradoPorBusqueda = this.tarjetas.filter( eventos => eventos.producto.toLowerCase().includes( this.valorDeBusqueda.toLowerCase()))
             if( this.chequeados.length === 0 ){
                 this.productosFiltrados = filtradoPorBusqueda
             }else{
