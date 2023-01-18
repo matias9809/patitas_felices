@@ -299,7 +299,9 @@ footer{
 .card{
     box-shadow: 10px 10px 7px -5px rgba(0,0,0,0.27) !important;
     transition: .5s;
+    width: 310px!important;
 }
+
 
 .card:hover{
     transform: scale(1.05);
