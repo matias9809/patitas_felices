@@ -92,13 +92,13 @@
             </section>
             <template v-if="estaCargando">
                 <div class="d-flex flex-column justify-content-start align-items-center w-100 min-vh-100">
-                    <lottie-player src="./assets/icons/loadingCat.json" background="transparent" speed="1"
-                        style="width: 200px; height: 200px;" autoplay repeat>
+                    <lottie-player src="./assets/icons/loadingDog.json" background="transparent" speed="1"
+                        style="width: 200px; height: 200px;" autoplay loop repeat>
                     </lottie-player>
                     <strong style="color: rgb(172, 101, 9)">Cargando...</strong>
                 </div>
             </template>
-            <template v-if="todosLosProductos.length && !estaCargando">
+            <template v-if="productosFiltrados.length && !estaCargando">
                 <section class="contenedor__check__busqueda">
                     <form class="form d-flex flex-wrap justify-content-around align-items-center m-5">
                         <div class="categ cards d-flex flex-wrap justify-content-around" id="cat">

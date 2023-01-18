@@ -9,6 +9,8 @@ createApp( {
             chequeados:"",
             valorDeBusqueda:"",
             todos:[],
+            estaCargando: true,
+            productosFiltrados : []
         }
     },
     created(){
@@ -81,14 +83,14 @@ createApp( {
         // console.log(this.productos)
         // },
     },
-  /*   computed: {
+    computed: {
 
         cargando(){
 
-            if(!this.tarjetas.length) setTimeout(() => this.estaCargando = false, 2000)
+            if(this.productosFiltrados.length) setTimeout(() => this.estaCargando = false, 2000)
         
         }
 
-    } */
+    } 
     }).mount("#app")
 
