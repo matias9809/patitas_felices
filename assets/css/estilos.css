@@ -10,6 +10,12 @@
     z-index: 2;
 }
 
+.main__contenedor{
+
+    min-height: 85vh;
+
+}
+
 .main__inicio{
     position: relative;
 }
@@ -223,6 +229,7 @@ footer{
     margin-top: 1rem;
     align-items: center;
     justify-content: center;
+    max-width: 100vw;
 }
 
 .titulo__tiendas{
@@ -244,6 +251,7 @@ footer{
 .contenedor__check__busqueda{
     background-color: rgba(255, 255, 255, 0.8);
     margin-bottom: 2rem;
+    padding: 10px;
 }
 
 .contenedor__check__busqueda form{
@@ -256,7 +264,6 @@ footer{
 
 .form-control{
     
-    height: 5vh !important;
     box-shadow:inset 2px 2px 4px rgba(120, 120, 120, .4), inset -3px -3px 3px rgba(255,255,255,.4);
 }
 .mensaje__error__check{
@@ -285,11 +292,12 @@ footer{
 #card_home{
     margin-top: -.5rem;
     margin-bottom: 1rem;
+    width: 100vw;
+
 }
 .card{
     box-shadow: 10px 10px 7px -5px rgba(0,0,0,0.27) !important;
     transition: .5s;
-    min-height: 58vh;
 }
 
 .card:hover{
@@ -340,10 +348,7 @@ footer{
 }
 
 .tarjeta__botones__contenedor{
-    position: absolute;
-    bottom: 0;
     margin-top: 1rem;
-    margin-bottom: 1rem;
 }
 
 .boton__tarjeta-izquierdo{
@@ -364,10 +369,11 @@ footer{
 /* C O N T A C T */
 
 html,
-body{
+body,
+#app{
 
     width: 100%;
-    height: 100%;
+    min-height: 100%;
 
 }
 
@@ -679,6 +685,19 @@ body{
 
     }
 
+    .responsive__select{
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .encabezado__tiendas{
+        flex-direction: column;
+
+    }
+
 }
 
 body{
@@ -703,17 +722,12 @@ ul{
 }
 .footer{
 	background-color: #91be95;
-    padding: 70px 0;
-    max-height: 30vh;
-    width: 100%;
+    padding-top: 10px;
     
 }
 .footer__columna{
    width: 25%;
-   padding: 0 15px;
-   max-height: 25vh;
-   margin-top: -6vh;
-
+ 
 }
 .footer__columna h4{
 	font-size: 18px;
@@ -774,10 +788,6 @@ ul{
         height: 13vh !important;
     }
 
-    .card{
-        min-height: 44vh !important;
-    }
-
     .w-100{
         height: 13vh !important;
     } 
@@ -789,18 +799,11 @@ ul{
     margin-bottom: 10vh;
     margin: 0;
 }
-    .footer{
-        max-height: 55vh;
-        
-    }
 
     .imagen__nav__encabezado{
         width: 3.3vw;
     }
 
-    .card{
-        min-height: 44vh !important;
-    }
     .contenedor__texto__inicio{
         width: 95%;
         margin-left: 2vh;
@@ -826,13 +829,6 @@ ul{
         margin: 0;
     }
 
-    .card{
-        min-height: 43vh !important;
-    }
-    .footer{
-        max-height: 60%;
-        height: 47%;
-    }
     .imagen__nav__encabezado{
         width: 5.5vw;
     }
@@ -855,21 +851,8 @@ ul{
     .nav__imagen{
         width: 13rem;
     }
+
+    .form-control{
+        width: 90vw!important;
+    }
 }
-
-
-/* .carousel{
-    margin-top: 3rem;
-    width: 56vw !important;
-    height: 20vh !important;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 1rem !important;
-    box-shadow: 10px 10px 7px -5px rgba(0,0,0,0.27);
-}
-
-.w-100{
-    height: 20vh !important;
-    object-fit: cover !important;
-    border-radius: 1rem !important;
-
-} */

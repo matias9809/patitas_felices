@@ -22,7 +22,6 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <a class="nav-link color__botones p-1" href="./index.html"><p class="nav__texto">Inicio</p></a>
-                    <a class="nav-link color__botones p-1" href="./clientes.html"><p class="nav__texto">Clientes</p></a>
                     <a class="nav-link color__botones p-1" href="./farmacia.html"><p class="nav__texto">Farmacia</p></a>
                     <a class="nav-link color__botones p-1" href="#"><p class="nav__texto">Jugueteria</p></a>
                     <a class="nav-link color__botones p-1" href="./contacto.html"><p  class="nav__texto">Contacto</p></a>
@@ -79,7 +78,7 @@
             </div>
       
     </header>
-        <main>
+        <main class="main__contenedor">
             {{cargando}}
             <section class="encabezado__tiendas">
                 <img src="./assets/imagenes/favico.png" alt="" srcset="" class="imagen__tienda__encabezado">
@@ -100,8 +99,8 @@
                     <form class="form d-flex flex-wrap justify-content-around align-items-center m-5">
                         <div class="categ cards d-flex flex-wrap justify-content-around" id="cat">
                             <div class="check-selects">
-                                <label class="p-3">Rango de precio
-                                    <select name="precio" value="chequeados" class="p-1" v-on:Click="filtroCruzado"
+                                <label class="p-3 responsive__select">Rango de precio
+                                    <select name="precio" value="chequeados" class="p-1" v-on:click="filtroCruzado"
                                         v-model="chequeados">
                                         <option value="" selected>{{chequeados ? "ninguna" : "selecciona una opcion"}}
                                         </option>
@@ -140,14 +139,13 @@
                 </section>
 
                 <div id="card_home" class="cards d-flex flex-wrap justify-content-center">
-                    
                         <div v-if="productosFiltrados" class="card col-3 m-3" style="width: 18rem;"
                             v-for="tarjeta of productosFiltrados">
                             <div class="tarjeta__imagen__contenedor">
                                 <img v-bind:src="tarjeta.imagen" class="card-img-top tarjeta__imagen"
                                     :alt="tarjeta.producto">
                             </div>
-                            <div class="card-body">
+                            <div class="card-body d-flex flex-column justify-content-between">
                                 <h5 class="card-title text-center">{{tarjeta.producto}}</h5>
                                 <p class="card-text">{{tarjeta.descripcion.slice(0,100)}}...</p>
                                 <div class="tarjeta__precio__disponibles__contenedor">
@@ -173,7 +171,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
                     <div v-show="productosFiltrados.length==0" class="text-center mensaje__error__check">
                         <p>No hay productos con ese nombre.</p>
                     </div>

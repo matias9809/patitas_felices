@@ -14,7 +14,25 @@ createApp( {
             estaCargando: true,
             productosFiltrados : [],
             filtradoPorMascota: [],
-            perro: []
+            perro: [],
+            data: {
+                nombre: "",
+                apellido: "",
+                telefono: "",
+                mascota: "",
+                otraMascota: "",
+                mensaje: ""
+            },
+            errores: {
+                nombre: "",
+                apellido: "",
+                telefono: "",
+                mascota: "",
+                otraMascota: "",
+                mensaje: "",
+
+            },
+            enviando: null
         }
     },
     created(){
@@ -118,28 +136,62 @@ createApp( {
         verMas: function(id){
             this.todosLosProductos.forEach(tarjeta => tarjeta._id === id ? this.informacionDeTarjeta = tarjeta : `No hay informacion acerca del producto` );
         },
-        
-        filtroPerroOGato: function(perroOGato){
-            let arrayFiltradoMascota = []
-            console.log(this.perro)
-            if(this.perro === "perro"){
-                let filtroPorTipoPerro = filtradoPorBusqueda.filter( eventos => eventos.producto.toLowerCase().includes("perro"))
-                let filtroPorTipoCachorro = filtradoPorBusqueda.filter( eventos => eventos.producto.toLowerCase().includes("cachorro"))
+        submit() {
 
-                arrayFiltradoMascota.push(filtroPorTipoPerro)
-                arrayFiltradoMascota.push(filtroPorTipoCachorro)
-                arrayFiltradoMascota = arrayFiltradoMascota.flat()
-            }else if(this.perro === "gato"){
-                let filtroPorTipoGato = filtradoPorBusqueda.filter( eventos => eventos.producto.toLowerCase().includes("gato"))
-                let filtroPorTipoGatito = filtradoPorBusqueda.filter( eventos => eventos.producto.toLowerCase().includes("gatito"))
+            this.evaluarInputs(true);
 
-                arrayFiltradoMascota.push(filtroPorTipoGato)
-                arrayFiltradoMascota.push(filtroPorTipoGatito)
+            if(!Object.values(this.errores).some(e => e !== "") || 
+                Object.entries(this.errores).filter(e => e[1] !== "").length === 1 && 
+                this.errores.otraMascota &&
+                this.data.mascota !== "otro" ){
 
-                arrayFiltradoMascota = arrayFiltradoMascota.flat()
-            }else{
-                arrayFiltradoMascota = filtradoPorBusqueda
+                this.enviando = true;
+
+                setTimeout(() => this.enviando = false, 2000)
+
+                setTimeout(() => {
+
+                    this.resetearDatos()
+                    this.enviando = null
+    
+                }, 6000)
+
             }
+
+        },
+
+        resetearDatos(){
+
+            for(let [key, value] of Object.entries(this.data)){
+
+                this.data[key] = ""
+
+            }
+
+        },
+
+        evaluarInputs(isenviando){
+
+            for(let [key] of Object.entries(this.errores)){
+
+                if (isenviando && !this.data[key]) this.errores[key] = "*campo obligatorio";
+
+                else if(this.data[key]) this.errores[key] = "";
+
+                if(this.data[key]){
+
+                    if(!/^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/g.test(this.data[key]) && 
+                        (   key === "nombre" || 
+                            key === "apellido" || 
+                            key === "OtraMascota")) this.errores[key] = "*sólo introducir letras";
+    
+                    else if(key === "telefono" && 
+                            !/^[0-9]+$/g.test(this.data[key])) this.errores.telefono = "*sólo introducir números";
+
+                }
+
+            }
+
         }
     },
     computed: {
@@ -148,8 +200,13 @@ createApp( {
 
             if(this.productosFiltrados.length) setTimeout(() => this.estaCargando = false, 2000)
         
+        },
+        reEvaluarInputs() {
+
+            this.evaluarInputs(false);
+
         }
+
 
     } 
     }).mount("#app")
-
