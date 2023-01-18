@@ -10,7 +10,8 @@ createApp( {
             valorDeBusqueda:"",
             todos:[],
             estaCargando: true,
-            productosFiltrados : []
+            productosFiltrados : [],
+            disponibles_iniciales:[]
         }
     },
     created(){
@@ -26,10 +27,19 @@ createApp( {
                 let nombrePagina=location.pathname;//ve pagina nombre
                 if (nombrePagina.includes("farmacia"))
                 this.productos=this.todosLosProductos.filter(producto=>producto.categoria==="farmacia");
+                
                 else
                 this.productos=this.todosLosProductos.filter(producto=>producto.categoria==="jugueteria");
 
                 this.compras=this.todosLosProductos.filter(e=>e.ventas>0);
+
+                this.disponibles_iniciales=[...new Set(datos.map(e=>{
+                        return{
+                            _id:e._id,
+                            disponibles:e.disponibles,
+                            ventas:0
+                        }
+                }))]
 
                 this.productosFiltrados = this.productos;
             } )
@@ -76,12 +86,18 @@ createApp( {
         verMas: function(id){
             this.todosLosProductos.forEach(tarjeta => tarjeta._id === id ? this.informacionDeTarjeta = tarjeta : `No hay informacion acerca del producto` );
         },
-        // removerCarrito:function(){
-        // localStorage.removeItem("nuestrosProductos");
-        // this.productos=this.todos;
-        // this.compras=[];
-        // console.log(this.productos)
-        // },
+        removerCarrito:function(){
+            this.todosLosProductos.forEach(e=>{
+                this.disponibles_iniciales.forEach(f=>{
+                    if(e._id==f._id){
+                        e.disponibles=f.disponibles
+                        e.ventas=f.ventas 
+                    }
+                })
+            })
+            localStorage.removeItem("nuestrosProductos")
+            this.compras=this.todosLosProductos.filter(e=>e.ventas>0);
+        },
     },
     computed: {
 
