@@ -84,8 +84,8 @@
                     <div class="categ cards d-flex flex-wrap justify-content-around" id="cat">
                         <div class="check-selects">
                             <label class="p-3">Rango de precio
-                                <select name="precio" class="p-1" v-on:Click="filtroCruzado" v-model="chequeados">
-                                    <option value="">{{chequeados ?"ninguna":"selecciona una opcion"}}</option>
+                                <select name="precio" value="chequeados" class="p-1" v-on:Click="filtroCruzado" v-model="chequeados">
+                                    <option value="" selected>{{chequeados ? "ninguna" : "selecciona una opcion"}}</option>
                                     <option value="1500">hasta $1500</option>
                                     <option value="1501">desde $1501 hasta $2000</option>
                                     <option value="2001">mayor a $2001</option>
@@ -124,8 +124,12 @@
                                     Ver mas
                                 </button>
                                 <button type="button" class="btn btn-primary boton__tarjeta" data-bs-toggle="modal"
-                                    data-bs-target="#farmacia_favoritos" @click="verMas(tarjeta._id)">
+                                    data-bs-target="#farmacia_favoritos" @click="agregar(tarjeta)">
                                     Agregar al carrito
+                                </button>
+                                <button type="button" class="btn btn-primary boton__tarjeta" data-bs-toggle="modal"
+                                data-bs-target="#farmacia_favoritos" @click="eliminar(tarjeta)">
+                                Eliminar del carrito
                                 </button>
                             </div>
                         </div>

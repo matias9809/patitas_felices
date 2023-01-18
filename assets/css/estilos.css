@@ -244,7 +244,7 @@ footer{
 .card{
     box-shadow: 10px 10px 7px -5px rgba(0,0,0,0.27) !important;
     transition: .5s;
-    height: 55vh;
+    height: 330px;
 }
 
 .card:hover{
@@ -694,9 +694,6 @@ ul{
         font-size: 5vw;
         margin-left: 8rem;
     }
-<<<<<<< HEAD
-}
-=======
 
     .h1__inicio{
         font-size: 5vw;
@@ -771,4 +768,3 @@ ul{
       min-height: 50px;
   }
   }
->>>>>>> main

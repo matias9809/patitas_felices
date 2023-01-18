@@ -13,7 +13,13 @@ createApp( {
             informacionDeTarjeta: "",
             categoriasFiltradas: [],
             categoriasOrdenadasMenorAMayor: [],
-            estaCargando: true
+            estaCargando: true,
+            todosLosProductos: [],
+            compras: [],
+            productos:[],
+            informacionDeTarjeta:{},
+            valorDeBusqueda:"",
+            todos:[],
         }
     },
     created(){
@@ -57,14 +63,28 @@ createApp( {
                     }
                 }
 
+                this.todosLosProductos=[...datos];
+                
+                this.todosLosProductos.forEach(producto=>producto.ventas=0);
+
+                if(localStorage.getItem("nuestrosProductos"))
+                this.todosLosProductos = JSON.parse(localStorage.getItem("nuestrosProductos"));
+                let nombrePagina=location.pathname;//ve pagina nombre
+                if (nombrePagina.includes("farmacia"))
+                this.productos=this.todosLosProductos.filter(producto=>producto.categoria==="farmacia");
+                else
+                this.productos=this.todosLosProductos.filter(producto=>producto.categoria==="jugueteria");
+
+                this.compras=this.todosLosProductos.filter(e=>e.ventas>0);
             } )
             .catch()
     },
     methods: {
         filtroCruzado: function(){
             let filtradoPorBusqueda = this.tarjetas.filter( eventos => eventos.producto.toLowerCase().includes( this.valorDeBusqueda.toLowerCase()))
-            if( this.chequeados.length === 0 ){
-                this.productosFiltrados = filtradoPorBusqueda
+            if( !this.chequeados.length ){
+ 
+                this.tarjetasFiltradas = filtradoPorBusqueda;
             }else{
                 let filtradosPorCheck
                 if(this.chequeados<=1500){
@@ -103,6 +123,9 @@ createApp( {
         },
         removerCarrito:function(){
         localStorage.removeItem("nuestrosProductos");
+        this.productos=this.todos;
+        this.compras=[];
+        console.log(this.productos)
         },
     },
     computed: {
