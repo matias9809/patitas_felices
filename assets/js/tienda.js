@@ -26,7 +26,7 @@ createApp( {
         fetch(`https://mindhub-xj03.onrender.com/api/petshop`)
             .then( respuesta => respuesta.json() )
             .then( datos => {
-                switch(document.title.split("|")[1].trim()){
+/*                 switch(document.title.split("|")[1].trim()){
                     case "Jugueteria":{
                         this.disponibles =[...new Set( datos.map(e=>{
                             if(e.categoria=="jugueteria"){
@@ -61,7 +61,7 @@ createApp( {
                         this.categoriasOrdenadasMenorAMayor = this.categoriasFiltradas.sort((a, b) => a -b)
                         break
                     }
-                }
+                } */
 
                 this.todosLosProductos=[...datos];
                 

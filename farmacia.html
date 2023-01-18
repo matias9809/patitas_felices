@@ -128,8 +128,8 @@
 
                 <div id="card_home" class="cards d-flex flex-wrap justify-content-center">
                     <div id="card_home" class="cards d-flex flex-wrap justify-content-center">
-                        <div v-if="tarjetasFiltradas" class="card col-3 m-3" style="width: 18rem;"
-                            v-for="tarjeta of tarjetasFiltradas">
+                        <div v-if="productos" class="card col-3 m-3" style="width: 18rem;"
+                            v-for="tarjeta of productos">
                             <div class="tarjeta__imagen__contenedor">
                                 <img v-bind:src="tarjeta.imagen" class="card-img-top tarjeta__imagen"
                                     :alt="tarjeta.producto">
@@ -157,7 +157,6 @@
                                         </button>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
