@@ -87,7 +87,7 @@
                 <div class="img__contenedor_superpuesto"></div>
                 <div
                     class="d-flex flex-column align-items-center justify-content-center container__form__title_contact">
-                    <h1 class="p-0 m-0 mt-2 d-flex align-items-center p-4">
+                    <h1 class="p-0 m-0 mt-2 d-flex align-items-center p-4 titulo_tiendas">
                         <img src="./assets/imagenes/favico.png" />
                         <span class="pe-2">PATITAS FELICES</span>|<span class="px-2">CONTACTO</span>
                     </h1>
@@ -150,7 +150,7 @@
                                     {{errores.mascota}}
                                 </p>
                             </div>
-                            <div class="p-0 d-flex flex-column">
+                            <div class="p-0 d-flex flex-column" v-if="data.mascota==='otro'">
                                 <label for="mascota" class="m-0">Aclaración de mascota</label>
                                 <input type="text" class="input" v-model="data.otraMascota"
                                     placeholder="ejemplo: conejo">
