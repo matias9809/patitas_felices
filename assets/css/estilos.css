@@ -10,6 +10,12 @@
     z-index: 2;
 }
 
+.main__contenedor{
+
+    min-height: 85vh;
+
+}
+
 .main__inicio{
     position: relative;
 }
