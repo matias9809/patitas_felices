@@ -1,4 +1,5 @@
 const { createApp } = Vue
+
 createApp( {
     data(){
         return {
@@ -8,9 +9,11 @@ createApp( {
             informacionDeTarjeta:{},
             chequeados:"",
             valorDeBusqueda:"",
+            switchCheck: "",
             todos:[],
             estaCargando: true,
-            productosFiltrados : []
+            productosFiltrados : [],
+            perroOGtao: ""
         }
     },
     created(){
@@ -18,7 +21,6 @@ createApp( {
             .then( respuesta => respuesta.json() )
             .then( datos => {
                 this.todosLosProductos=[...datos];
-
                 this.todosLosProductos.forEach(producto=>producto.ventas=0);
 
                 if(localStorage.getItem("nuestrosProductos"))
@@ -34,9 +36,13 @@ createApp( {
                 this.productosFiltrados = this.productos;
             } )
             .catch()
+
+            
     },
     methods: {
         filtroCruzado: function(){
+
+            console.log(this.perroOGtao)
             let filtradoPorBusqueda = this.productos.filter( eventos => eventos.producto.toLowerCase().includes( this.valorDeBusqueda.toLowerCase()))
             if( this.chequeados.length === 0 ){
                 this.productosFiltrados = filtradoPorBusqueda
