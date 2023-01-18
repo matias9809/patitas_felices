@@ -138,7 +138,7 @@
                 </section>
 
 
-                <div id="card_home" class="cards d-flex flex-wrap justify-content-center">
+                <div id="card_home" class="cards d-flex flex-wrap justify-content-center ">
                         <div v-if="productosFiltrados" class="card col-3 m-3" style="width: 18rem;"
                             v-for="tarjeta of productosFiltrados">
                             <div class="tarjeta__imagen__contenedor">
@@ -157,7 +157,7 @@
                                         class="modal__sinunidades">Ultimas unidades!</p>
                                     <p v-else class="modal__sinunidades">No hay stock</p>
                                 </div>
-                                <div class="tarjeta__botones__contenedor">
+                                <div class="d-flex">
                                     <button type="button"
                                         class="btn btn-primary boton__tarjeta boton__tarjeta-izquierdo"
                                         data-bs-toggle="modal" data-bs-target="#farmacia_favoritos"
@@ -184,9 +184,9 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
-                            <div class="modal-body d-flex align-items-center " id="modal_tarjetas">
+                            <div class="modal-body d-flex align-items-center" id="modal_tarjetas">
                                 <img :src="informacionDeTarjeta.imagen" :alt="informacionDeTarjeta.producto"
-                                    :title="informacionDeTarjeta.producto" class="info__modal__img">
+                                    :title="informacionDeTarjeta.producto" class="info__modal__img modal__responsive">
                                 <div class="info__modal__contenedor__texto">
                                     <p class="info__modal__ttl">{{informacionDeTarjeta.producto}}</p>
                                     <p class="info__modal__p">{{informacionDeTarjeta.descripcion}}</p>

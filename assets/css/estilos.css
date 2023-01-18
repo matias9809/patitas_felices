@@ -195,6 +195,8 @@ footer{
 
 /* ---- M O D A L ---- */
 
+
+
 .modal{
     --bs-modal-width: 50vw !important;
 }
@@ -354,6 +356,10 @@ footer{
     height: 2rem;
     font-weight: 300;
     margin-top: 1rem;
+}
+
+.btn{
+    padding: .2rem .5rem .5rem .5rem !important;
 }
 
 .boton__tarjeta-izquierdo{
@@ -797,6 +803,20 @@ ul{
     .w-100{
         height: 13vh !important;
     } 
+
+    .modal{
+        --bs-modal-width: 80vw !important;
+    }
+    
+    .modal__responsive{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .info__modal__img{
+        width: 30vw;
+    }
 }
 
 @media(max-width: 769px){
@@ -804,7 +824,7 @@ ul{
     width: 50%;
     margin-bottom: 10vh;
     margin: 0;
-}
+    }
 
     .imagen__nav__encabezado{
         width: 3.3vw;
@@ -828,6 +848,13 @@ ul{
         font-size: 4vw;
     }
     
+    .modal{
+        --bs-modal-width: 90vw !important;
+    }
+
+    .info__modal__img{
+        width: 40vw;
+    }
 }
 
 .img__responsive__tienda{
@@ -877,6 +904,22 @@ ul{
 
     .form-control{
         width: 90vw!important;
+    }
+
+    .modal{
+        --bs-modal-width: 70vw !important;
+        display: flex;
+        flex-wrap: wrap !important;
+    }
+
+    .modal-body{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap !important;
+    }
+
+    .info__modal__img{
+        width: 60vw;
     }
 }
 
