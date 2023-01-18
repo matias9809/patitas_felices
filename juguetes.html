@@ -22,6 +22,7 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <a class="nav-link color__botones p-1" href="./index.html"><p class="nav__texto">Inicio</p></a>
+                    <a class="nav-link color__botones p-1" href="./clientes.html"><p class="nav__texto">Clientes</p></a>
                     <a class="nav-link color__botones p-1" href="./farmacia.html"><p class="nav__texto">Farmacia</p></a>
                     <a class="nav-link color__botones p-1" href="#"><p class="nav__texto">Jugueteria</p></a>
                     <a class="nav-link color__botones p-1" href="./contacto.html"><p  class="nav__texto">Contacto</p></a>
@@ -111,15 +112,35 @@
                                 </label>
                             </div>
                         </div>
+                        <div class="d-flex align-items-center flex-wrap justify-content-center">
+                            <p class="m-3">Su mascota:</p>
+                            <div class="form-check form-switch m-1">
+                                <input class="form-check-input" @change="filtroCruzado" v-model="perro" value="hueso" type="checkbox" >
+                                <label class="form-check-label">Huesos</label>
+                              </div>
+                              <div class="form-check form-switch m-1">
+                                <input class="form-check-input" @change="filtroCruzado" v-model="perro" value="pelota" type="checkbox" >
+                                <label class="form-check-label">Pelotas</label>
+                              </div>
+                              <div class="form-check form-switch m-1">
+                                <input class="form-check-input" @change="filtroCruzado" v-model="perro" value="rascador" type="checkbox" >
+                                <label class="form-check-label">Rascador</label>
+                              </div>
+                              <div class="form-check form-switch m-1">
+                                <input class="form-check-input" @change="filtroCruzado" v-model="perro" value="peluche" type="checkbox" >
+                                <label class="form-check-label">Peluches</label>
+                              </div>
+                              
+                        </div>
                         <div class="div_b d-flex flex-wrap">
-                            <input class="form-control me-3 " v-on:input="filtroCruzado" v-model="valorDeBusqueda"
+                            <input class="form-control me-3 col-4" v-on:input="filtroCruzado" v-model="valorDeBusqueda"
                                 type="search" placeholder="Search" aria-label="Search">
                         </div>
                     </form>
                 </section>
 
                 <div id="card_home" class="cards d-flex flex-wrap justify-content-center">
-                    <div id="card_home" class="cards d-flex flex-wrap justify-content-center">
+                    
                         <div v-if="productosFiltrados" class="card col-3 m-3" style="width: 18rem;"
                             v-for="tarjeta of productosFiltrados">
                             <div class="tarjeta__imagen__contenedor">

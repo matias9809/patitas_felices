@@ -13,7 +13,8 @@ createApp( {
             todos:[],
             estaCargando: true,
             productosFiltrados : [],
-            perroOGtao: ""
+            filtradoPorMascota: [],
+            perro: []
         }
     },
     created(){
@@ -41,20 +42,55 @@ createApp( {
     },
     methods: {
         filtroCruzado: function(){
+            let filtradoPorBusqueda = this.productos.filter( eventos => eventos.producto.toLowerCase().includes( this.valorDeBusqueda.toLowerCase()))   
 
-            console.log(this.perroOGtao)
-            let filtradoPorBusqueda = this.productos.filter( eventos => eventos.producto.toLowerCase().includes( this.valorDeBusqueda.toLowerCase()))
+            let arrayFiltradoMascota = []
+            if(this.perro == "perro"){
+                let filtroPorTipoPerro = filtradoPorBusqueda.filter( eventos => eventos.producto.toLowerCase().includes("perro"))
+                let filtroPorTipoCachorro = filtradoPorBusqueda.filter( eventos => eventos.producto.toLowerCase().includes("cachorro"))
+
+                arrayFiltradoMascota.push(filtroPorTipoPerro)
+                arrayFiltradoMascota.push(filtroPorTipoCachorro)
+                arrayFiltradoMascota = arrayFiltradoMascota.flat()
+            }else if(this.perro == "gato"){
+                let filtroPorTipoGato = filtradoPorBusqueda.filter( eventos => eventos.producto.toLowerCase().includes("gato"))
+                let filtroPorTipoGatito = filtradoPorBusqueda.filter( eventos => eventos.producto.toLowerCase().includes("gatito"))
+
+                arrayFiltradoMascota.push(filtroPorTipoGato)
+                arrayFiltradoMascota.push(filtroPorTipoGatito)
+
+                arrayFiltradoMascota = arrayFiltradoMascota.flat()
+            }else if(this.perro == "hueso"){
+                let filtroPorJuguetes = filtradoPorBusqueda.filter( eventos => eventos.producto.toLowerCase().includes("hueso"))
+                arrayFiltradoMascota = filtroPorJuguetes
+            }else if(this.perro == "pelota"){
+                let filtroPorJuguetes = filtradoPorBusqueda.filter( eventos => eventos.producto.toLowerCase().includes("pelota"))
+                arrayFiltradoMascota = filtroPorJuguetes
+            }else if(this.perro == "rascador"){
+                let filtroPorJuguetes = filtradoPorBusqueda.filter( eventos => eventos.producto.toLowerCase().includes("rascador"))
+                arrayFiltradoMascota = filtroPorJuguetes
+            }else if(this.perro == "peluche"){
+                let filtroPorPeluche = filtradoPorBusqueda.filter( eventos => eventos.producto.toLowerCase().includes("peluche"))
+                let filtroPorPollito = filtradoPorBusqueda.filter( eventos => eventos.producto.toLowerCase().includes("pollito"))
+
+                arrayFiltradoMascota.push(filtroPorPeluche)
+                arrayFiltradoMascota.push(filtroPorPollito)
+                arrayFiltradoMascota = arrayFiltradoMascota.flat()
+            }else{
+                arrayFiltradoMascota = filtradoPorBusqueda
+            }
+
             if( this.chequeados.length === 0 ){
-                this.productosFiltrados = filtradoPorBusqueda
+                this.productosFiltrados = arrayFiltradoMascota
             }else{
                 let filtradosPorCheck
                 if(this.chequeados<=1500){
-                    filtradosPorCheck = filtradoPorBusqueda.filter( eventos =>this.chequeados>=eventos.precio)
+                    filtradosPorCheck = arrayFiltradoMascota.filter( eventos =>this.chequeados>=eventos.precio)
                 }else if(this.chequeados==1501){
-                    filtradosPorCheck = filtradoPorBusqueda.filter( eventos => (this.chequeados<eventos.precio&&eventos.precio<=2000))
+                    filtradosPorCheck = arrayFiltradoMascota.filter( eventos => (this.chequeados<eventos.precio&&eventos.precio<=2000))
                 }
                 else if(this.chequeados==2001){
-                    filtradosPorCheck = filtradoPorBusqueda.filter( eventos => this.chequeados<=eventos.precio)
+                    filtradosPorCheck = arrayFiltradoMascota.filter( eventos => this.chequeados<=eventos.precio)
                     
                 }
                 this.productosFiltrados = filtradosPorCheck 
@@ -82,12 +118,29 @@ createApp( {
         verMas: function(id){
             this.todosLosProductos.forEach(tarjeta => tarjeta._id === id ? this.informacionDeTarjeta = tarjeta : `No hay informacion acerca del producto` );
         },
-        // removerCarrito:function(){
-        // localStorage.removeItem("nuestrosProductos");
-        // this.productos=this.todos;
-        // this.compras=[];
-        // console.log(this.productos)
-        // },
+        
+        filtroPerroOGato: function(perroOGato){
+            let arrayFiltradoMascota = []
+            console.log(this.perro)
+            if(this.perro === "perro"){
+                let filtroPorTipoPerro = filtradoPorBusqueda.filter( eventos => eventos.producto.toLowerCase().includes("perro"))
+                let filtroPorTipoCachorro = filtradoPorBusqueda.filter( eventos => eventos.producto.toLowerCase().includes("cachorro"))
+
+                arrayFiltradoMascota.push(filtroPorTipoPerro)
+                arrayFiltradoMascota.push(filtroPorTipoCachorro)
+                arrayFiltradoMascota = arrayFiltradoMascota.flat()
+            }else if(this.perro === "gato"){
+                let filtroPorTipoGato = filtradoPorBusqueda.filter( eventos => eventos.producto.toLowerCase().includes("gato"))
+                let filtroPorTipoGatito = filtradoPorBusqueda.filter( eventos => eventos.producto.toLowerCase().includes("gatito"))
+
+                arrayFiltradoMascota.push(filtroPorTipoGato)
+                arrayFiltradoMascota.push(filtroPorTipoGatito)
+
+                arrayFiltradoMascota = arrayFiltradoMascota.flat()
+            }else{
+                arrayFiltradoMascota = filtradoPorBusqueda
+            }
+        }
     },
     computed: {
 
