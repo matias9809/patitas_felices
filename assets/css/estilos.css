@@ -223,6 +223,7 @@ footer{
     margin-top: 1rem;
     align-items: center;
     justify-content: center;
+    max-width: 100vw;
 }
 
 .titulo__tiendas{
@@ -687,6 +688,11 @@ body,
 
     }
 
+    .encabezado__tiendas{
+        flex-direction: column;
+
+    }
+
 }
 
 body{
@@ -711,6 +717,7 @@ ul{
 }
 .footer{
 	background-color: #91be95;
+    padding-top: 10px;
     
 }
 .footer__columna{
@@ -787,10 +794,6 @@ ul{
     margin-bottom: 10vh;
     margin: 0;
 }
-    .footer{
-        max-height: 55vh;
-        
-    }
 
     .imagen__nav__encabezado{
         width: 3.3vw;
@@ -821,10 +824,6 @@ ul{
         margin: 0;
     }
 
-    .footer{
-
-   
-    }
     .imagen__nav__encabezado{
         width: 5.5vw;
     }
