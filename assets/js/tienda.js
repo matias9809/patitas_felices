@@ -98,6 +98,17 @@ createApp( {
             localStorage.removeItem("nuestrosProductos")
             this.compras=this.todosLosProductos.filter(e=>e.ventas>0);
         },
+        ComprarCarrito:function(){
+            this.todosLosProductos.forEach(e=>{
+                this.disponibles_iniciales.forEach(f=>{
+                    if(e._id==f._id){
+                        e.ventas=f.ventas 
+                    }
+                })
+            })
+            localStorage.removeItem("nuestrosProductos")
+            this.compras=this.todosLosProductos.filter(e=>e.ventas>0);
+        },
     },
     computed: {
 
