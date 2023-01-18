@@ -6,7 +6,7 @@ createApp( {
             tarjetas : [],
             categorias : [],
             valorDeBusqueda: "",
-            chequeados: [],
+            chequeados: "",
             tarjetasFiltradas : [],
             carrito:[],
             aux:[],
@@ -66,8 +66,17 @@ createApp( {
             if( this.chequeados.length === 0 ){
                 this.productosFiltrados = filtradoPorBusqueda
             }else{
-                let filtradosPorCheck = filtradoPorBusqueda.filter( eventos => this.chequeados( eventos.precio ))
-                this.productosFiltrados = filtradosPorCheck 
+                let filtradosPorCheck
+                if(this.chequeados<=1500){
+                    filtradosPorCheck = filtradoPorBusqueda.filter( eventos =>this.chequeados>=eventos.precio)
+                }else if(this.chequeados==1501){
+                    filtradosPorCheck = filtradoPorBusqueda.filter( eventos => (this.chequeados<eventos.precio&&eventos.precio<=2000))
+                }
+                else if(this.chequeados==2001){
+                    filtradosPorCheck = filtradoPorBusqueda.filter( eventos => this.chequeados<=eventos.precio)
+                    
+                }
+                this.tarjetasFiltradas = filtradosPorCheck 
             }
         },
         agregar: function(objeto){//crear v-if en disponibles y boton agregar colocar mensaje no hay displonibles
