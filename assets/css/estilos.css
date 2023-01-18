@@ -132,7 +132,7 @@
 }
 
 .h2__inicio{
-    font-size: 6vw;
+    font-size: 5vw;
     margin-top: -1rem;
     margin-left: 6rem;
     color: #3e66a2;
@@ -140,7 +140,7 @@
 }
 
 .h1__inicio{
-    font-size: 6vw;
+    font-size: 5vw;
     margin-top: -2rem;
     border-bottom: .6rem solid rgb(199, 187, 122);
     color: #e6546b;
@@ -149,6 +149,7 @@
 }
 
 .p__inicio{
+    margin-bottom: 0;
     font-size: 1.8vw;
     text-align: center;
 }
@@ -785,7 +786,8 @@ ul{
 @media(max-width: 1025px){
     .carousel{
         margin-top: 1.5rem;
-        height: 13vh !important;
+        height: fit-content;
+        max-width: 400px;
     }
 
     .w-100{
@@ -805,12 +807,14 @@ ul{
     }
 
     .contenedor__texto__inicio{
-        width: 95%;
-        margin-left: 2vh;
+        width: 56vw;
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: .5rem;
+        border-radius: 1rem;
+        box-shadow: 10px 10px 7px -5px rgba(0,0,0,0.27);
     }
     .carousel{
             width: 95%;
-            margin-left: 2vh;
             margin-bottom: 4vh;
     }
     .h2__inicio{
