@@ -714,6 +714,20 @@ ul{
 }
 
 /*responsive*/
+@media(max-width: 1025px){
+    .carousel{
+        margin-top: 1.5rem;
+        height: 13vh !important;
+    }
+
+    .card{
+        min-height: 44vh !important;
+    }
+
+    .w-100{
+        height: 13vh !important;
+    } 
+}
 
 @media(max-width: 769px){
   .footer__columna{
@@ -731,7 +745,7 @@ ul{
     }
 
     .card{
-        min-height: 52vh !important;
+        min-height: 44vh !important;
     }
     .contenedor__texto__inicio{
         width: 95%;
@@ -756,6 +770,10 @@ ul{
         max-height: 40%;
         height: 40%;
         margin: 0;
+    }
+
+    .card{
+        min-height: 43vh !important;
     }
     .footer{
         max-height: 60%;
