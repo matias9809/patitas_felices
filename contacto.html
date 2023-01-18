@@ -36,19 +36,21 @@
                     <div class="offcanvas offcanvas-end color__carrito" tabindex="-1" id="offcanvasNavbar"
                         aria-labelledby="offcanvasNavbarLabel">
                         <div class="offcanvas-header ">
+                            <div v-if="yaCompraste" style="z-index: 1000" class="position-fixed color-alert top-0 end-50 mt-1 fs-5 p-2 rounded shadow">
+                                Gracias por su compra
+                            </div>
                             <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Su Carrito de Compras :</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                 aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body">
-                            <div    class="card mb-3" 
+                            <div    class="card mb-3 p-2" 
                                     v-if="compras.length > 0"
                                     v-for="compra of compras"
-                                    style="max-height: 220px;"><!-- elementos en carrito de compras -->
+                                    style="max-height: fit-content;"><!-- elementos en carrito de compras -->
                                 <div class="row g-0">
-                                    <div class="col-md-4">
-                                        <img :src="compra.imagen" class="img-fluid rounded-start"
-                                            :alt="compra.producto">
+                                    <div class="col-md-4 img__responsive__tienda">
+                                        <img :src="compra.imagen" style="object-fit: cover;" class="img-fluid height-auto rounded-start" :alt="compra.producto">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
@@ -59,7 +61,7 @@
                                             <p class="card-text">Cantidad en el carrito: {{compra.ventas}}</p>
                                         </div>
                                     </div>
-                                    <div class="d-flex justify-content-around">
+                                    <div class="d-flex justify-content-around pt-3">
                                         <button type="button" class="btn btn-primary boton__tarjeta" v-if="compra.disponibles > 0"
                                             @click="agregar(compra)">
                                             Agregar 
@@ -72,7 +74,9 @@
                                 </div>
                             </div>
                             <div class="d-flex mt-3" role="search">
-                                <button class="color__boton__compra m-2 p-1" @click="comprarCarrito" type="submit">Comprar Carrito</button>
+                                <button v-if="compras.length" class="color__boton__compra m-2 p-1" type="submit" @Click="comprando">Comprar Carrito</button>
+                                <button v-if="compras.length"class="color__boton__compra m-2 p-1" type="submit" @Click="removerCarrito">Eliminar Carrito</button>
+                                <h3 v-else class="fs-3 text-center w-100">No hay nada en el carrito</h3>
                             </div>
                         </div>
                     </div>
@@ -190,11 +194,10 @@
             <div class="container">
                 <div class="row">
                     <div class="footer__columna">
-                        <h4>company</h4>
+                        <h4>Empresa</h4>
                         <ul>
                             <li><a href="#">Sobre Nosotros</a></li>
                             <li><a href="#">Servicios</a></li>
-                            <li><a href="#">Devoluciones</a></li>
                         </ul>
                     </div>
                     <div class="footer__columna">
@@ -202,7 +205,6 @@
                         <ul>
                             <li><a href="#">FAQ</a></li>
                             <li><a href="#">Envíos</a></li>
-                            <li><a href="#">Metodos de Pago</a></li>
                         </ul>
                     </div>
                     <div class="footer__columna">

@@ -12,10 +12,12 @@ createApp( {
             switchCheck: "",
             todos:[],
             estaCargando: true,
+            yaCompraste: false,
             productosFiltrados : [],
             filtradoPorMascota: [],
             perro: [],
             disponibles_iniciales:[],
+            agregandoAlCarrito: false,
             data: {
                 nombre: "",
                 apellido: "",
@@ -124,6 +126,8 @@ createApp( {
             }
         },
         agregar: function(objeto){//crear v-if en disponibles y boton agregar colocar mensaje no hay displonibles
+            this.agregadoAlcarrito()
+            
             this.todosLosProductos.find(producto=>{
                 if(producto._id==objeto._id){
                 producto.disponibles--;
@@ -158,6 +162,32 @@ createApp( {
             localStorage.removeItem("nuestrosProductos")
             this.compras=this.todosLosProductos.filter(e=>e.ventas>0);
         },
+        agregadoAlcarrito(){
+
+            this.agregandoAlCarrito = true;
+
+            setTimeout(() => this.agregandoAlCarrito = false, 1000)
+
+        },
+        ComprarCarrito:function(){
+            this.todosLosProductos.forEach(e=>{
+                this.disponibles_iniciales.forEach(f=>{
+                    if(e._id==f._id){
+                        e.ventas=f.ventas
+                    }
+                })
+            })
+            localStorage.removeItem("nuestrosProductos")
+            localStorage.setItem("nuestrosProductos", JSON.stringify(this.todosLosProductos))
+            this.compras=this.todosLosProductos.filter(e=>e.ventas>0);
+        },
+        comprando(){
+
+            this.ComprarCarrito();
+            this.yaCompraste = true;
+            setTimeout(() => this.yaCompraste = false, 2000)
+
+        },
         submit() {
 
             this.evaluarInputs(true);
@@ -169,7 +199,7 @@ createApp( {
 
                 this.enviando = true;
 
-                setTimeout(() => this.enviando = false, 2000)
+                setTimeout(() => this.enviando = false, 1000)
 
                 setTimeout(() => {
 

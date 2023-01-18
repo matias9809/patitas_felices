@@ -14,211 +14,226 @@
 </head>
 
 <body class="body__juguetes" id="app">
-    <header class="d-flex justify-content-between color__navegador" >
+    <div v-if="agregandoAlCarrito" style="z-index: 10"
+        class="position-fixed top-0 end-0 color-alert mt-1 fs-5 p-2 m-2 rounded shadow">
+        Agregado al carrito
+    </div>
+    <header class="d-flex justify-content-between color__navegador">
         <nav class="navbar navbar-expand-lg">
             <div class="d-md-flex text-center navbar-expand-lg">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <a class="nav-link color__botones p-1" href="./index.html"><p class="nav__texto">Inicio</p></a>
-                    <a class="nav-link color__botones p-1" href="./farmacia.html"><p class="nav__texto">Farmacia</p></a>
-                    <a class="nav-link color__botones p-1" href="#"><p class="nav__texto">Jugueteria</p></a>
-                    <a class="nav-link color__botones p-1" href="./contacto.html"><p  class="nav__texto">Contacto</p></a>
+                    <a class="nav-link color__botones p-1" href="./index.html">
+                        <p class="nav__texto">Inicio</p>
+                    </a>
+                    <a class="nav-link color__botones p-1" href="./farmacia.html">
+                        <p class="nav__texto">Farmacia</p>
+                    </a>
+                    <a class="nav-link color__botones p-1" href="#">
+                        <p class="nav__texto">Jugueteria</p>
+                    </a>
+                    <a class="nav-link color__botones p-1" href="./contacto.html">
+                        <p class="nav__texto">Contacto</p>
+                    </a>
                 </div>
-                
+
             </div>
         </nav>
-            <button class="navbar-toggler position-sticky me-3 m-2" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                <img src="./assets/imagenes/carritocompras.png" alt="carrito de compra" width="40" height="40">
-            </button>
-            <div class="offcanvas offcanvas-end color__carrito" tabindex="-1" id="offcanvasNavbar"
-                aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header ">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Su Carrito de Compras :</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <div    class="card mb-3" 
-                            v-if="compras.length > 0"
-                            v-for="compra of compras"
-                            style="max-height: 220px;"><!-- elementos en carrito de compras -->
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img :src="compra.imagen" class="img-fluid rounded-start"
-                                    :alt="compra.producto">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{compra.producto}}</h5>
-                                    <p class="card-text">Precio: ${{compra.precio}}</p>
-                                    <p class="card-text"><small class="text-muted">Disponibles:
-                                            {{compra.disponibles}}</small></p>
-                                    <p class="card-text">Cantidad en el carrito: {{compra.ventas}}</p>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-around">
-                                <button type="button" class="btn btn-primary boton__tarjeta" v-if="compra.disponibles > 0"
-                                    @click="agregar(compra)">
-                                    Agregar 
-                                </button>
-                                <button type="button" class="btn btn-primary boton__tarjeta"
-                                    @click="eliminar(compra)">
-                                    Eliminar unidad
-                                </button>
+        <button class="navbar-toggler position-sticky me-3 m-2" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <img src="./assets/imagenes/carritocompras.png" alt="carrito de compra" width="40" height="40">
+        </button>
+        <div class="offcanvas offcanvas-end color__carrito" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
+            <div v-if="yaCompraste" style="z-index: 1000"
+                class="position-fixed color-alert top-0 end-50 mt-1 fs-5 p-2 rounded shadow">
+                Gracias por su compra
+            </div>
+            <div class="offcanvas-header ">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Su Carrito de Compras :</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="card mb-3 p-2" v-if="compras.length > 0" v-for="compra of compras" >
+                    <!-- elementos en carrito de compras -->
+                    <div class="row g-0">
+                        <div class="col-md-4 img__responsive__tienda">
+                            <img :src="compra.imagen" style="object-fit: cover;" class="img-fluid height-auto rounded-start" :alt="compra.producto">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{compra.producto}}</h5>
+                                <p class="card-text">Precio: ${{compra.precio}}</p>
+                                <p class="card-text"><small class="text-muted">Disponibles:
+                                        {{compra.disponibles}}</small></p>
+                                <p class="card-text">Cantidad en el carrito: {{compra.ventas}}</p>
                             </div>
                         </div>
+                        <div class="d-flex justify-content-around pt-3">
+                            <button type="button" class="btn btn-primary boton__tarjeta" v-if="compra.disponibles > 0"
+                                @click="agregar(compra)">
+                                Agregar 
+                            </button>
+                            <button type="button" class="btn btn-primary boton__tarjeta"
+                                @click="eliminar(compra)">
+                                Eliminar unidad
+                            </button>
+                        </div>
                     </div>
-                    <div class="d-flex mt-3" role="search">
-                        <button class="color__boton__compra m-2 p-1" type="submit">Comprar Carrito</button>
+                </div>
+                <div class="d-flex mt-3" role="search">
+                    <button v-if="compras.length" class="color__boton__compra m-2 p-1" type="submit" @Click="comprando">Comprar Carrito</button>
+                    <button v-if="compras.length"class="color__boton__compra m-2 p-1" type="submit" @Click="removerCarrito">Eliminar Carrito</button>
+                    <h3 v-else class="fs-3 text-center w-100">No hay nada en el carrito</h3>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <main class="main__contenedor">
+        {{cargando}}
+        <section class="encabezado__tiendas">
+            <img src="./assets/imagenes/favico.png" alt="" srcset="" class="imagen__tienda__encabezado">
+            <h1 class="titulo_tiendas d-flex align-items-center justify-content-center">
+                <span class="pe-2">PATITAS FELICES</span>|<span class="px-2">JUGUETERIA</span>
+            </h1>
+        </section>
+        <template v-if="estaCargando">
+            <div class="d-flex flex-column justify-content-start align-items-center w-100 min-vh-100">
+                <lottie-player src="./assets/icons/loadingCat.json" background="transparent" speed="1"
+                    style="width: 200px; height: 200px;" autoplay repeat>
+                </lottie-player>
+                <strong style="color: rgb(172, 101, 9)">Cargando...</strong>
+            </div>
+        </template>
+        <template v-if="todosLosProductos.length && !estaCargando">
+            <section class="contenedor__check__busqueda">
+                <form class="form d-flex flex-wrap justify-content-around align-items-center m-5">
+                    <div class="categ cards d-flex flex-wrap justify-content-around" id="cat">
+                        <div class="check-selects">
+                            <label class="p-3 responsive__select">Rango de precio
+                                <select name="precio" value="chequeados" class="p-1" v-on:click="filtroCruzado"
+                                    v-model="chequeados">
+                                    <option value="" selected>{{chequeados ? "ninguna" : "selecciona una opcion"}}
+                                    </option>
+                                    <option value="1500">hasta $1500</option>
+                                    <option value="1501">desde $1501 hasta $2000</option>
+                                    <option value="2001">mayor a $2001</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center flex-wrap justify-content-center">
+                        <p class="m-3">Su mascota:</p>
+                        <div class="form-check form-switch m-1">
+                            <input class="form-check-input" @change="filtroCruzado" v-model="perro" value="hueso"
+                                type="checkbox">
+                            <label class="form-check-label">Huesos</label>
+                        </div>
+                        <div class="form-check form-switch m-1">
+                            <input class="form-check-input" @change="filtroCruzado" v-model="perro" value="pelota"
+                                type="checkbox">
+                            <label class="form-check-label">Pelotas</label>
+                        </div>
+                        <div class="form-check form-switch m-1">
+                            <input class="form-check-input" @change="filtroCruzado" v-model="perro" value="rascador"
+                                type="checkbox">
+                            <label class="form-check-label">Rascador</label>
+                        </div>
+                        <div class="form-check form-switch m-1">
+                            <input class="form-check-input" @change="filtroCruzado" v-model="perro" value="peluche"
+                                type="checkbox">
+                            <label class="form-check-label">Peluches</label>
+                        </div>
+
+                    </div>
+                    <div class="div_b d-flex flex-wrap">
+                        <input class="form-control me-3 col-4" v-on:input="filtroCruzado" v-model="valorDeBusqueda"
+                            type="search" placeholder="Search" aria-label="Search">
+                    </div>
+                </form>
+            </section>
+
+            <div id="card_home" class="cards d-flex flex-wrap justify-content-center">
+                <div v-if="productosFiltrados" class="card col-3 m-3" style="width: 18rem;"
+                    v-for="tarjeta of productosFiltrados">
+                    <div class="tarjeta__imagen__contenedor">
+                        <img v-bind:src="tarjeta.imagen" class="card-img-top tarjeta__imagen" :alt="tarjeta.producto">
+                    </div>
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <h5 class="card-title text-center">{{tarjeta.producto}}</h5>
+                        <p class="card-text">{{tarjeta.descripcion.slice(0,100)}}...</p>
+                        <div class="tarjeta__precio__disponibles__contenedor">
+                            <p class="card-text"><b>Precio: ${{tarjeta.precio}}</b></p>
+                            <p v-if="tarjeta.disponibles >= 5" class=" card-text info__modal__p"><b>Disponibles:
+                                    {{tarjeta.disponibles}}</b>
+                            </p>
+                            <p v-else-if="tarjeta.disponibles < 5 && tarjeta.disponibles > 0"
+                                class="modal__sinunidades">Ultimas unidades!</p>
+                            <p v-else class="modal__sinunidades">No hay stock</p>
+                        </div>
+                        <div class="tarjeta__botones__contenedor">
+                            <button type="button" class="btn btn-primary boton__tarjeta boton__tarjeta-izquierdo"
+                                data-bs-toggle="modal" data-bs-target="#farmacia_favoritos"
+                                @click="verMas(tarjeta._id)">
+                                Ver mas
+                            </button>
+                            <button type="button" class="btn btn-primary boton__tarjeta" v-if="tarjeta.disponibles"
+                                @click="agregar(tarjeta)">
+                                Agregar al carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div v-show="productosFiltrados.length==0" class="text-center mensaje__error__check">
+                    <p>No hay productos con ese nombre.</p>
+                </div>
+            </div>
+            <div class="modal fade" id="farmacia_favoritos" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body d-flex align-items-center " id="modal_tarjetas">
+                            <img :src="informacionDeTarjeta.imagen" :alt="informacionDeTarjeta.producto"
+                                :title="informacionDeTarjeta.producto" class="info__modal__img">
+                            <div class="info__modal__contenedor__texto">
+                                <p class="info__modal__ttl">{{informacionDeTarjeta.producto}}</p>
+                                <p class="info__modal__p">{{informacionDeTarjeta.descripcion}}</p>
+                                <p v-if="informacionDeTarjeta.disponibles >= 5" class="info__modal__p">Cantidad
+                                    disponible: <b>{{informacionDeTarjeta.disponibles}}</b></p>
+                                <p v-else-if="informacionDeTarjeta.disponibles < 5 && informacionDeTarjeta.disponibles > 0"
+                                    class="info__modal__precio modal__sinunidades">Ultimas unidades!</b></p>
+                                <p v-else class="info__modal__precio modal__sinunidades">No hay stock</b></p>
+                                <p class="info__modal__precio">Precio: ${{informacionDeTarjeta.precio}}</p>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary  boton__tarjeta"
+                                data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary  boton__tarjeta"
+                                v-if="informacionDeTarjeta.disponibles" @click="agregar(informacionDeTarjeta)">
+                                Agregar al carrito</button>
+                        </div>
                     </div>
                 </div>
             </div>
-      
-    </header>
-        <main class="main__contenedor">
-            {{cargando}}
-            <section class="encabezado__tiendas">
-                <img src="./assets/imagenes/favico.png" alt="" srcset="" class="imagen__tienda__encabezado">
-                <h1 class="titulo_tiendas d-flex align-items-center justify-content-center">
-                    <span class="pe-2">PATITAS FELICES</span>|<span class="px-2">JUGUETERIA</span>
-                </h1>
-            </section>
-            <template v-if="estaCargando">
-                <div class="d-flex flex-column justify-content-start align-items-center w-100 min-vh-100">
-                    <lottie-player src="./assets/icons/loadingCat.json" background="transparent" speed="1"
-                        style="width: 200px; height: 200px;" autoplay repeat>
-                    </lottie-player>
-                    <strong style="color: rgb(172, 101, 9)">Cargando...</strong>
-                </div>
-            </template>
-            <template v-if="todosLosProductos.length && !estaCargando">
-                <section class="contenedor__check__busqueda">
-                    <form class="form d-flex flex-wrap justify-content-around align-items-center m-5">
-                        <div class="categ cards d-flex flex-wrap justify-content-around" id="cat">
-                            <div class="check-selects">
-                                <label class="p-3 responsive__select">Rango de precio
-                                    <select name="precio" value="chequeados" class="p-1" v-on:click="filtroCruzado"
-                                        v-model="chequeados">
-                                        <option value="" selected>{{chequeados ? "ninguna" : "selecciona una opcion"}}
-                                        </option>
-                                        <option value="1500">hasta $1500</option>
-                                        <option value="1501">desde $1501 hasta $2000</option>
-                                        <option value="2001">mayor a $2001</option>
-                                    </select>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center flex-wrap justify-content-center">
-                            <p class="m-3">Su mascota:</p>
-                            <div class="form-check form-switch m-1">
-                                <input class="form-check-input" @change="filtroCruzado" v-model="perro" value="hueso" type="checkbox" >
-                                <label class="form-check-label">Huesos</label>
-                              </div>
-                              <div class="form-check form-switch m-1">
-                                <input class="form-check-input" @change="filtroCruzado" v-model="perro" value="pelota" type="checkbox" >
-                                <label class="form-check-label">Pelotas</label>
-                              </div>
-                              <div class="form-check form-switch m-1">
-                                <input class="form-check-input" @change="filtroCruzado" v-model="perro" value="rascador" type="checkbox" >
-                                <label class="form-check-label">Rascador</label>
-                              </div>
-                              <div class="form-check form-switch m-1">
-                                <input class="form-check-input" @change="filtroCruzado" v-model="perro" value="peluche" type="checkbox" >
-                                <label class="form-check-label">Peluches</label>
-                              </div>
-                              
-                        </div>
-                        <div class="div_b d-flex flex-wrap">
-                            <input class="form-control me-3 col-4" v-on:input="filtroCruzado" v-model="valorDeBusqueda"
-                                type="search" placeholder="Search" aria-label="Search">
-                        </div>
-                    </form>
-                </section>
-
-                <div id="card_home" class="cards d-flex flex-wrap justify-content-center">
-                        <div v-if="productosFiltrados" class="card col-3 m-3" style="width: 18rem;"
-                            v-for="tarjeta of productosFiltrados">
-                            <div class="tarjeta__imagen__contenedor">
-                                <img v-bind:src="tarjeta.imagen" class="card-img-top tarjeta__imagen"
-                                    :alt="tarjeta.producto">
-                            </div>
-                            <div class="card-body d-flex flex-column justify-content-between">
-                                <h5 class="card-title text-center">{{tarjeta.producto}}</h5>
-                                <p class="card-text">{{tarjeta.descripcion.slice(0,100)}}...</p>
-                                <div class="tarjeta__precio__disponibles__contenedor">
-                                    <p class="card-text"><b>Precio: ${{tarjeta.precio}}</b></p>
-                                    <p v-if="tarjeta.disponibles >= 5" class=" card-text info__modal__p"><b>Disponibles:
-                                        {{tarjeta.disponibles}}</b>
-                                    </p>
-                                    <p v-else-if="tarjeta.disponibles < 5 && tarjeta.disponibles > 0"
-                                        class="modal__sinunidades">Ultimas unidades!</p>
-                                    <p v-else class="modal__sinunidades">No hay stock</p>
-                                </div>
-                                <div class="tarjeta__botones__contenedor">
-                                    <button type="button"
-                                        class="btn btn-primary boton__tarjeta boton__tarjeta-izquierdo"
-                                        data-bs-toggle="modal" data-bs-target="#farmacia_favoritos"
-                                        @click="verMas(tarjeta._id)">
-                                        Ver mas
-                                    </button>
-                                    <button type="button" class="btn btn-primary boton__tarjeta"
-                                        v-if="tarjeta.disponibles" @click="agregar(tarjeta)">
-                                        Agregar al carrito
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    <div v-show="productosFiltrados.length==0" class="text-center mensaje__error__check">
-                        <p>No hay productos con ese nombre.</p>
-                    </div>
-                </div>
-                <div class="modal fade" id="farmacia_favoritos" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body d-flex align-items-center " id="modal_tarjetas">
-                                <img :src="informacionDeTarjeta.imagen" :alt="informacionDeTarjeta.producto"
-                                    :title="informacionDeTarjeta.producto" class="info__modal__img">
-                                <div class="info__modal__contenedor__texto">
-                                    <p class="info__modal__ttl">{{informacionDeTarjeta.producto}}</p>
-                                    <p class="info__modal__p">{{informacionDeTarjeta.descripcion}}</p>
-                                    <p v-if="informacionDeTarjeta.disponibles >= 5" class="info__modal__p">Cantidad
-                                        disponible: <b>{{informacionDeTarjeta.disponibles}}</b></p>
-                                    <p v-else-if="informacionDeTarjeta.disponibles < 5 && informacionDeTarjeta.disponibles > 0"
-                                        class="info__modal__precio modal__sinunidades">Ultimas unidades!</b></p>
-                                    <p v-else class="info__modal__precio modal__sinunidades">No hay stock</b></p>
-                                    <p class="info__modal__precio">Precio: ${{informacionDeTarjeta.precio}}</p>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary  boton__tarjeta"
-                                    data-bs-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-primary  boton__tarjeta" v-if="informacionDeTarjeta.disponibles"
-                                    @click="agregar(informacionDeTarjeta)">
-                                    Agregar al carrito</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </template>
-        </main>
+        </template>
+    </main>
     </div>
     <footer class="footer">
         <div class="container">
             <div class="roww">
                 <div class="footer__columna">
-                    <h4>company</h4>
+                    <h4>Empresa</h4>
                     <ul>
                         <li><a href="#">Sobre Nosotros</a></li>
                         <li><a href="#">Servicios</a></li>
-                        <li><a href="#">Devoluciones</a></li>
                     </ul>
                 </div>
                 <div class="footer__columna">
@@ -226,7 +241,6 @@
                     <ul>
                         <li><a href="#">FAQ</a></li>
                         <li><a href="#">Envíos</a></li>
-                        <li><a href="#">Metodos de Pago</a></li>
                     </ul>
                 </div>
                 <div class="footer__columna">
