@@ -263,7 +263,7 @@ footer{
 }
 
 .form-control{
-    width: 35vw !important;
+    
     box-shadow:inset 2px 2px 4px rgba(120, 120, 120, .4), inset -3px -3px 3px rgba(255,255,255,.4);
 }
 .mensaje__error__check{

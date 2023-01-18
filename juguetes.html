@@ -115,8 +115,28 @@
                                 </label>
                             </div>
                         </div>
+                        <div class="d-flex align-items-center flex-wrap justify-content-center">
+                            <p class="m-3">Su mascota:</p>
+                            <div class="form-check form-switch m-1">
+                                <input class="form-check-input" @change="filtroCruzado" v-model="perro" value="hueso" type="checkbox" >
+                                <label class="form-check-label">Huesos</label>
+                              </div>
+                              <div class="form-check form-switch m-1">
+                                <input class="form-check-input" @change="filtroCruzado" v-model="perro" value="pelota" type="checkbox" >
+                                <label class="form-check-label">Pelotas</label>
+                              </div>
+                              <div class="form-check form-switch m-1">
+                                <input class="form-check-input" @change="filtroCruzado" v-model="perro" value="rascador" type="checkbox" >
+                                <label class="form-check-label">Rascador</label>
+                              </div>
+                              <div class="form-check form-switch m-1">
+                                <input class="form-check-input" @change="filtroCruzado" v-model="perro" value="peluche" type="checkbox" >
+                                <label class="form-check-label">Peluches</label>
+                              </div>
+                              
+                        </div>
                         <div class="div_b d-flex flex-wrap">
-                            <input class="form-control me-3 " v-on:input="filtroCruzado" v-model="valorDeBusqueda"
+                            <input class="form-control me-3 col-4" v-on:input="filtroCruzado" v-model="valorDeBusqueda"
                                 type="search" placeholder="Search" aria-label="Search">
                         </div>
                     </form>
