@@ -18,6 +18,7 @@
     background-image: url("../imagenes/fondoinicio.jpg");
     background-attachment: fixed;
     background-size: cover;
+    height: auto;
 }
 
 .body__juguetes{
@@ -608,7 +609,6 @@ body{
 
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 body{
 	line-height: 1.5;
 /* 	font-family: 'Poppins', sans-serif; */
@@ -632,14 +632,14 @@ ul{
 .footer{
 	background-color: #91be95;
     padding: 70px 0;
-    max-height: 25%;
+    max-height: 30vh;
     width: 100%;
     
 }
 .footer__columna{
    width: 25%;
    padding: 0 15px;
-   max-height: 23%;
+   max-height: 25vh;
    margin-top: -6vh;
 
 }
@@ -701,16 +701,11 @@ ul{
   .footer__columna{
     width: 50%;
     margin-bottom: 10vh;
-    max-height: 40%;
-    height: 40%;
     margin: 0;
 }
     .footer{
-        max-height: 40%;
-        height: 40%;
-    }
-    .roww{
-        margin-top: -5vh;
+        max-height: 55vh;
+        
     }
     .contenedor__texto__inicio{
         width: 95%;
